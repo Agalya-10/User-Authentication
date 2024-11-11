@@ -1,0 +1,81 @@
+ /* .user{
+    font-size: 5rem;
+    color:hsl(340, 97%, 45%); 
+ } */
+ #form{
+    background-color:white;
+    width: 350px;
+    margin: 15vh auto;
+
+}
+.head{
+    text-align: center;
+    color:hsl(340, 97%, 45%); 
+    font-family:Georgia, 'Times New Roman', Times, serif;
+    font-weight: bolder;
+}
+.para{
+    font-size: 10px;
+    text-align: center;
+
+} 
+.input-type{
+    margin: 10px 35px;
+    font-size: 18px;
+    display: flex;
+    flex-direction: column;
+
+} 
+.input-type input{
+    padding: 6px;
+    /* border-radius: 10px; */
+}
+.input-type label{
+    font-weight: 500;
+    margin: 5px 10px;
+}
+.submit{
+    padding: 3px;
+    margin:20px ;
+    cursor: pointer;
+    font-size: 17px;
+    border-radius: 10px;
+    background-color:hsl(340, 97%, 45%); ;
+    width: 25%;
+    margin-left: 8rem;
+    font-weight: 500;
+    color: white;
+}
+.submit:hover{
+    background-color: white;
+    color: black;
+}
+.password1{
+    text-decoration: none;
+    font-size: 13px;  
+ }
+ .pass{
+    text-decoration: none;
+    font-size: 13px;
+    margin-left: 4.5rem;
+    color:hsl(340, 97%, 45%); 
+}
+.insert-icon {
+    position: relative;
+    /* width: fit-content; */
+}
+
+.insert-icon i {
+    position: absolute;
+    left: 7px; 
+    top: 50%;
+    transform: translateY(-50%);
+    color:hsl(340, 97%, 45%); 
+}
+.insert-icon input {
+    padding-left: 30px; 
+}
+/* #togglePasswords{
+    font-size: 16px;
+} */
+
