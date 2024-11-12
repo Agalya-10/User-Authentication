@@ -1,4 +1,4 @@
-async function MyButton(event) { // `async` keyword added
+async function MyButton(event) { 
     event.preventDefault();
 
     let userName = document.getElementById('userName').value;
@@ -36,22 +36,6 @@ async function MyButton(event) { // `async` keyword added
     else {
         passwordError.textContent = '';
     }
-    
-// const passwordField = document.getElementById("password");
-// const eyeIcon = document.getElementById("togglePassword");
-
-// eyeIcon.addEventListener("click", function() {
-//     if (passwordField.type === "password") {
-//         passwordField.type = "text"; 
-//         eyeIcon.classList.remove("fa-eye-slash");
-//         eyeIcon.classList.add("fa-eye");
-//     } else {
-//         passwordField.type = "password"; 
-//         eyeIcon.classList.remove("fa-eye");
-//         eyeIcon.classList.add("fa-eye-slash");
-//     }
-// });
-
     if (valid) {
         const data = {
             userName: userName,
@@ -81,3 +65,17 @@ async function MyButton(event) { // `async` keyword added
         }
     }
 }
+document.getElementById("togglePasswords").addEventListener("click", function() {
+    const passwordField = document.getElementById("password");
+    const toggleIcon = document.getElementById("togglePasswords");
+
+    if (passwordField.type === "password") {
+        passwordField.type = "text";
+        toggleIcon.classList.remove("bxs-hide");
+        toggleIcon.classList.add("bxs-show");
+    } else {
+        passwordField.type = "password";
+        toggleIcon.classList.remove("bxs-show");
+        toggleIcon.classList.add("bxs-hide");
+    }
+});
