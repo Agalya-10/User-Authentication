@@ -1,3 +1,5 @@
+
+
 async function MyButton(event) { 
     event.preventDefault();
 
@@ -15,7 +17,15 @@ async function MyButton(event) {
         nameError.style.fontSize = "13px";
         nameError.style.paddingLeft = "15px";
         valid = false;
-    } else {
+    }
+    else if (userName !== "ebrain") {
+         nameError.textContent = "Username is wrong.";
+         nameError.style.color = "red";
+         nameError.style.fontSize = "13px";
+         nameError.style.paddingLeft = "15px";
+        valid = false;
+    }  
+    else {
         nameError.textContent = '';
     }
 
@@ -33,6 +43,13 @@ async function MyButton(event) {
         passwordError.style.paddingLeft = "15px";
         valid = false;
     }
+    else if (password !== "Ji#993te") {
+        passwordError.textContent = "Password is wrong.";
+        passwordError.style.color = "red";
+        passwordError.style.fontSize = "13px";
+        passwordError.style.paddingLeft = "15px";
+        valid = false;
+    } 
     else {
         passwordError.textContent = '';
     }
@@ -53,15 +70,15 @@ async function MyButton(event) {
 
             if (response.ok) {
                 const result = await response.json();
-                console.log("User created successfully:", result);
-                alert("User created successfully!");
+                console.log("Logged in Successfully.:", result);
+                alert("Logged in Successfully.!");
                 document.getElementById('form').reset(); 
             } else {
                 throw new Error("Creation failed");
             }
         } catch (error) {
             console.error("Error:", error);
-            alert("There was an error submitting the form.");
+            alert("Password is wrong.!");
         }
     }
 }
@@ -79,3 +96,37 @@ document.getElementById("togglePasswords").addEventListener("click", function() 
         toggleIcon.classList.add("bxs-hide");
     }
 });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
