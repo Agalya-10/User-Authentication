@@ -89,20 +89,47 @@
     color:hsl(340, 97%, 45%); 
     
 }
-/* #otpModal {
+.modal {
+    font-family:Georgia, 'Times New Roman', Times, serif;
     display: none;
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background-color: white;
-    padding: 20px;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-    z-index: 1000;
+    background-color:rgba(0,0,0,0.5);
+    padding: 3rem 25rem;
 }
-#otpModal .close {
+.modal-content{
+    text-align: center;
+}
+.head{
+    color: hsl(340, 97%, 45%);
+
+}
+.timer{
+    justify-content: center;
+    gap: 4px;
+}
+.link{
+    text-decoration: none;
+    margin-left: 4rem;
+    color: hsl(340, 97%, 45%);
+}
+.submitbutton{
+    width: 20%;
+    margin-left: 13.7rem;
+    color: white;
+    padding: 5px;
+    margin-bottom: 20px;
     cursor: pointer;
-    color: red;
-    float: right;
-    font-size: 20px;
-} */
+    border: none;
+    font-size: 17px;
+    border-radius: 10px;
+    background-color:hsl(340, 97%, 45%); 
+}
+.bxs-timer {
+    color: hsl(340, 97%, 45%);
+}
+.close {
+    font-size: 30px;
+    font-weight: bold;
+    color: hsl(340, 97%, 45%);
+    cursor: pointer;
+    margin-left: 31rem;
+}

@@ -41,16 +41,25 @@
     </form>
 </div>
 
-<div id="otpModal">
-    <span class="close" onclick="closeModal()">×</span>
-    <h3>Enter Your OTP</h3>
-    <p>We've sent an OTP to your registered number. Please enter the OTP below:</p>
-    <input type="text" id="otpInput" placeholder="Enter OTP">
-    <span id="otpError" class="error"></span><br>
-    <span id="time">02:00</span> <button onclick="resendOtp()" id="resendOtpBtn" disabled>Resend OTP</button><br><br>
-    <button onclick="submitOtp()">Verify OTP</button>
-</div>
 
+<div id="otpModal" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeOtpModal()">&times;</span>
+        <h2 class="head mb-2">OTP Verification</h2>
+        <p>We've sent you OTP to your phone number.</p>
+        <div>
+            <span id="otpPrefix"> </span>
+            <input type="text" id="otpInput" maxlength="5" required>
+        </div>
+        <div class="timer d-flex mt-2">
+        <i class='bx bxs-timer  fs-4'></i>
+        <p id="timer">01:00</p>
+        <a href=""class=" link" >Resend OTP</a>
+        </div>
+        <button class="submitbutton" id="sendOtp" onclick="resendOtp()">Submit</button>
+      
+    </div>
+</div>
 </body>
 <script src="main.js"></script>
 </html>
