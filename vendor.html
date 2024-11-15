@@ -12,7 +12,14 @@
 <body>
     <div id="table1" class="mb-5 ">
         <table class="table table-bordered" style="text-align: center;">
-            <h3>User Details</h3>
+            <div class="user d-flex" style="justify-content: space-between;">
+            <h3 class="ms-3 mt-2 fw-bold heading">User Details</h3>
+            <div class="d-flex mt-2 me-4">
+            <i class='bx bx-user fs-2'></i>
+            <h4 id="userName"class="mt-1"></h4>
+        </div>
+        </div>
+        <div class="color">
             <thead>
                 <tr>
                     <th>S/No</th>
@@ -23,9 +30,9 @@
                     <th>Country</th>
                     <th>Status</th>
                     <th>Action</th>
-
                 </tr>
             </thead>
+        </div>
            <tbody id="table2"></tbody>
         </table>
         </div>

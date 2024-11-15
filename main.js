@@ -172,6 +172,7 @@ async function sendOtp(data) {
             alert("Access code successfully verified.!");           
             document.getElementById('form').reset();
             clearInterval(timerInterval); 
+            window.location = "vendor.html";
         } else {
             throw new Error("Login failed");
         }

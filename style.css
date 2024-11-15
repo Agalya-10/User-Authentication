@@ -133,3 +133,12 @@
     cursor: pointer;
     margin-left: 31rem;
 }
+#table1{
+    font-family:Georgia, 'Times New Roman', Times, serif;
+}
+#table1 th{
+    background-color:hsl(340, 97%, 45%);
+}
+#table2 tr:nth-child(even){
+    background-color: aqua;
+}
