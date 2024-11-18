@@ -1,5 +1,5 @@
 *{
-    overflow: hidden;
+    /* overflow: hidden; */
 }
 
  #form{
@@ -135,10 +135,43 @@
 }
 #table1{
     font-family:Georgia, 'Times New Roman', Times, serif;
+   
 }
-#table1 th{
-    background-color:hsl(340, 97%, 45%);
+.addbutton{
+   margin:1rem 1rem 2rem 77rem;
+   border: none;
+   padding: 7px;
+   background-color:hsl(340, 97%, 45%); 
+   color: white;
+   border-radius: 5px;
 }
-#table2 tr:nth-child(even){
-    background-color: aqua;
+.form1{
+    padding: 1rem;
+    font-size: 13px;
+}
+#formpage{
+    /* background-color: white; */
+    border-radius: 10px;
+    width: 380px;
+    margin: 9vh auto;
+    /* border: 30px; */
+    font-family:Georgia, 'Times New Roman', Times, serif;
+}
+.form-floating input{
+margin-left:15px ;
+width: 90%;
+}
+option{
+    font-size: 12px;
+}
+
+.savebutton{
+    border: none;
+    margin-left: 77rem;
+    padding: 5px 10px;
+    color: white;
+    font-weight: 600;
+    border-radius: 5px;
+    background-color:hsl(340, 97%, 45%); 
+
 }
