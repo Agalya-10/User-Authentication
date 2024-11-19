@@ -94,6 +94,9 @@ function displayTable(users) {
             <td>${user.address}</td>
             <td>${user.country}</td>
             <td>${user.status}</td>
+             <td>
+                    <i class='bx bxs-edit-alt fs-3 text-success'></i>
+                </td>
 
         </tr>`;
         tableBody.innerHTML += row;

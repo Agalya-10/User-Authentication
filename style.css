@@ -141,6 +141,7 @@
    margin:1rem 1rem 2rem 77rem;
    border: none;
    padding: 7px;
+   /* background-color:hsl(340, 97%, 45%);  */
    background-color:hsl(340, 97%, 45%); 
    color: white;
    border-radius: 5px;
@@ -161,10 +162,18 @@
 margin-left:15px ;
 width: 90%;
 }
+.form-floating select{
+    margin-left:15px ;
+    width: 90%;
+    }
 option{
     font-size: 12px;
 }
+.subhead{
+    color:hsl(340, 97%, 45%); 
 
+
+}
 .savebutton{
     border: none;
     margin-left: 77rem;
@@ -173,5 +182,4 @@ option{
     font-weight: 600;
     border-radius: 5px;
     background-color:hsl(340, 97%, 45%); 
-
 }

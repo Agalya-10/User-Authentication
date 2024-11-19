@@ -1,6 +1,7 @@
 function addButton() {
     window.location = "create.html";
 }
+let countryId = '';
 
 function saveButton(event) { 
     event.preventDefault();
@@ -142,15 +143,12 @@ function saveButton(event) {
 
 async function populateCurrencies() {
     try {
-        // Retrieve the JWT token from local storage
         const jwtToken = localStorage.getItem('jwtToken');
         
         if (!jwtToken) {
             alert("Authorization token is missing.");
             return;
         }
-
-        // API call to fetch currencies
         const response = await fetch('https://hastin-container.com/staging/api/meta/currencies', {
             method: 'GET',
             headers: {
@@ -158,40 +156,27 @@ async function populateCurrencies() {
                 'Content-Type': 'application/json',
             },
         });
-
-        // Check if the response is successful
         if (!response.ok) {
             throw new Error('Failed to fetch currencies');
         }
-
-        // Parse the response as JSON
         const data = await response.json();
-
-        // Debugging: Log the response to verify structure
         console.log(data);
 
-        // Validate and extract the currency array
         const currency = data?.data;
 
         if (!Array.isArray(currency)) {
             throw new Error('Currency data is missing or invalid.');
         }
+        const dropdown = document.getElementById('currency');
+        dropdown.innerHTML = '<option value="" disabled selected></option>';
 
-        // Get the dropdown element
-        const dropdown = document.getElementById('currencies-dropdown');
-
-        // Clear existing options (if any)
-        dropdown.innerHTML = '<option value="" disabled selected>Select a currency</option>';
-
-        // Populate the dropdown with options
         currency.forEach(currencys => {
             const option = document.createElement('option');
-            option.value = currencys.code; // Set the value of the option
-            option.textContent = currencys.name; // Set the display text of the option
-            dropdown.appendChild(option); // Add the option to the dropdown
+            option.value = currencys.code; 
+            option.textContent = currencys.name; 
+            dropdown.appendChild(option); 
         });
     } catch (error) {
-        // Handle errors and display a user-friendly message
         console.error('Error:', error.message);
         const errorDiv = document.getElementById('currencyError');
         errorDiv.textContent = `Error: ${error.message}`;
@@ -199,21 +184,18 @@ async function populateCurrencies() {
     }
 }
 
-// Call the function to populate the currencies
+
 populateCurrencies();
 
 
-async function populatecountry() {
+async function populateCountry() {
     try {
-        // Retrieve the JWT token from local storage
         const jwtToken = localStorage.getItem('jwtToken');
-        
         if (!jwtToken) {
             alert("Authorization token is missing.");
             return;
         }
 
-        // API call to fetch currencies
         const response = await fetch('https://hastin-container.com/staging/api/meta/country', {
             method: 'GET',
             headers: {
@@ -222,56 +204,45 @@ async function populatecountry() {
             },
         });
 
-        // Check if the response is successful
         if (!response.ok) {
-            throw new Error('Failed to fetch currencies');
+            throw new Error('Failed to fetch countries');
         }
 
-        // Parse the response as JSON
         const data = await response.json();
+        const countries = data?.data;
 
-        // Debugging: Log the response to verify structure
-        console.log(data);
-
-        // Validate and extract the currency array
-        const country = data?.data;
-
-        if (!Array.isArray(country)) {
-            throw new Error('country data is missing or invalid.');
+        if (!Array.isArray(countries)) {
+            throw new Error('Country data is missing or invalid.');
         }
 
-        // Get the dropdown element
-        const dropdown = document.getElementById('country-dropdown');
+        const countryDropdown = document.getElementById('country');
 
-        // Populate the dropdown with options
-        country.forEach(countrys => {
+        countries.forEach(country => {
             const option = document.createElement('option');
-            option.value = countrys.code; // Set the value of the option
-            option.textContent = countrys.name; // Set the display text of the option
-            dropdown.appendChild(option); // Add the option to the dropdown
+            option.value = country.id;
+            option.textContent = country.name;
+            countryDropdown.appendChild(option);
+        });
+
+        countryDropdown.addEventListener('change', (event) => {
+            const selectedCountryId = event.target.value; 
+            populateCity(selectedCountryId); 
         });
     } catch (error) {
-        // Handle errors
         console.error('Error:', error.message);
     }
 }
 
-// Call the function to populate the currencies
-populatecountry();
 
-
-async function populatecity() {
+async function populateCity(countryId) {
     try {
-        // Retrieve the JWT token from local storage
         const jwtToken = localStorage.getItem('jwtToken');
-        
         if (!jwtToken) {
             alert("Authorization token is missing.");
             return;
         }
 
-        // API call to fetch currencies
-        const response = await fetch(' https://hastin-container.com/staging/api/countryCities/get', {
+        const response = await fetch('https://hastin-container.com/staging/api/countryCities/get', {
             method: 'GET',
             headers: {
                 'Authorization': `BslogiKey ${jwtToken}`,
@@ -279,76 +250,34 @@ async function populatecity() {
             },
         });
 
-        // Check if the response is successful
         if (!response.ok) {
-            throw new Error('Failed to fetch currencies');
+            throw new Error('Failed to fetch cities');
         }
 
-        // Parse the response as JSON
         const data = await response.json();
+        const cities = data?.data;
 
-        // Debugging: Log the response to verify structure
-        console.log(data);
-
-        // Validate and extract the currency array
-        const city = data?.data;
-
-        if (!Array.isArray(city)) {
-            throw new Error('Currency data is missing or invalid.');
+        if (!Array.isArray(cities) || cities.length === 0) {
+            populateCityDropdown([]); 
+            return;
         }
 
-        // Get the dropdown element
-        const dropdown = document.getElementById('city-dropdown');
-
-        // Populate the dropdown with options
-        city.forEach(citys => {
-            const option = document.createElement('option');
-            option.value = citys.code; // Set the value of the option
-            option.textContent = citys.name; // Set the display text of the option
-            dropdown.appendChild(option); // Add the option to the dropdown
-        });
+        const filteredCities = cities.filter(city => city.countryId === countryId);
+        populateCityDropdown(filteredCities); 
     } catch (error) {
-        // Handle errors
         console.error('Error:', error.message);
     }
 }
 
-// Call the function to populate the currencies
-populatecity();
+function populateCityDropdown(cities) {
+    const cityDropdown = document.getElementById('city');
 
-// async function populateCurrencies() {
-//     try {
-//         const jwtToken = localStorage.getItem('jwtToken');
-        
-//         if (!jwtToken) {
-//             alert("Authorization token is missing.");
-//             return;
-//         }
-//       const response = await fetch ('https://hastin-container.com/staging/api/meta/currencies',{
-//         method: 'GET',
-//         headers: {
-//             'Authorization': `BslogiKey ${jwtToken}`,
-//             'Content-Type': 'application/json',
-//         }
-//     });
+    cities.forEach(city => {
+        const option = document.createElement('option');
+        option.value = city.id; 
+        option.textContent = city.cityName; 
+        cityDropdown.appendChild(option);
+    });
+}
 
-      
-//       if (!response.ok) {
-//         throw new Error('Failed to fetch currencies');
-//       }
-//       const data = await response.json();
-
-//       const dropdown = document.getElementById('currency-dropdown');
-
-//       data.forEach(currency => {
-//         const option = document.createElement('option');
-//         option.value = currency.code; 
-//         option.textContent = currency.name; 
-//         dropdown.appendChild(option); 
-//       });
-//     } catch (error) {
-//       console.error('Error:', error.message);
-//     }
-//   }
- 
-//   populateCurrencies();
+populateCountry();
