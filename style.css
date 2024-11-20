@@ -49,15 +49,18 @@
     font-weight: 500;
     margin: 5px 10px;
 }
+.parent-container3{
+    text-align: center;
+}
 .submit{
     padding: 5px;
     margin:30px ;
     cursor: pointer;
+    display: inline-block;
     font-size: 20px;
     border-radius: 10px;
     background-color:hsl(340, 97%, 45%); 
     width: 25%;
-    margin-left: 8.3rem;
     font-weight: 500;
     color: white;
     border: none;
@@ -111,14 +114,18 @@
     margin-left: 4rem;
     color: hsl(340, 97%, 45%);
 }
+.parent-container2{
+    text-align: center;
+}
 .submitbutton{
     width: 20%;
-    margin-left: 13.7rem;
+    /* margin-left: 13.7rem; */
     color: white;
     padding: 5px;
     margin-bottom: 20px;
     cursor: pointer;
     border: none;
+    display: inline-block;
     font-size: 17px;
     border-radius: 10px;
     background-color:hsl(340, 97%, 45%); 
@@ -133,12 +140,16 @@
     cursor: pointer;
     margin-left: 31rem;
 }
+.parent{
+    display: flex;
+    justify-content: end;
+}
 #table1{
     font-family:Georgia, 'Times New Roman', Times, serif;
    
 }
 .addbutton{
-   margin:1rem 1rem 2rem 77rem;
+   /* margin:1rem 1rem 2rem 77rem; */
    border: none;
    padding: 7px;
    /* background-color:hsl(340, 97%, 45%);  */
@@ -154,9 +165,13 @@
     /* background-color: white; */
     border-radius: 10px;
     width: 380px;
-    margin: 9vh auto;
+    margin: 2vh auto;
     /* border: 30px; */
     font-family:Georgia, 'Times New Roman', Times, serif;
+}
+.head1{
+    font-family:Georgia, 'Times New Roman', Times, serif;
+    color:hsl(340, 97%, 45%);
 }
 .form-floating input{
 margin-left:15px ;
@@ -171,15 +186,29 @@ option{
 }
 .subhead{
     color:hsl(340, 97%, 45%); 
-
-
 }
+.parent-container{
+    text-align: center;
+}
+
 .savebutton{
     border: none;
-    margin-left: 77rem;
+    /* margin-left: 40rem; */
     padding: 5px 10px;
     color: white;
     font-weight: 600;
     border-radius: 5px;
     background-color:hsl(340, 97%, 45%); 
+    display: inline-block;
+    
+}
+.parent-container1{
+    text-align: center;
+}
+#table{
+    width: 93%;
+    font-family:Georgia, 'Times New Roman', Times, serif;
+    /* display: flex;
+    justify-content: center; */
+    display: inline-block;
 }

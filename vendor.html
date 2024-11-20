@@ -12,14 +12,18 @@
 <body>
     <div id="table1" class="mb-5 ">
         <table class="table table-bordered table-hover" style="text-align: center;">
-            <div class="user d-flex" style="justify-content: space-between;">
-            <h3 class="ms-3 mt-2 fw-bold heading">User Details</h3>
-            <div class="d-flex mt-2 me-4">
-            <i class='bx bx-user fs-2'></i>
-            <h4 id="userName"class="mt-1"></h4>
+            <div class="parent">
+            <div class="d-flex mt-2 me-2">
+                <i class='bx bx-user fs-2'></i>
+                <h4 id="userName"class="mt-1"></h4>
+            </div>
         </div>
+            <div class="user d-flex mb-3" style="justify-content: space-between;">
+            <h3 class=" fw-bold heading ms-3">Vendor Details</h3>
+            <button class="addbutton me-2" onclick="addButton()">Add vendor</button>
+           
         </div>
-        <button class="addbutton" onclick="addButton()">Add vendor</button>
+       
             <thead>
                 <tr>
                     <th>S/No</th>

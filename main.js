@@ -19,7 +19,7 @@ async function MyButton(event) {
         valid = false;
     }
     else if (userName !== "ebrain") {
-         nameError.textContent = "Username is wrong.";
+         nameError.textContent = " Invalid Username .";
          nameError.style.color = "red";
          nameError.style.fontSize = "13px";
          nameError.style.paddingLeft = "15px";

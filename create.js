@@ -16,10 +16,14 @@ function saveButton(event) {
     let country = document.getElementById('country').value;
     let city= document.getElementById('city').value;
     let zipCode = document.getElementById('zipCode').value;
+    let Name = document.getElementById('Name').value;
+    let Email = document.getElementById('Email').value;
+    let phoneno = document.getElementById('phoneno').value;
+    // let Default = document.getElementById('Default').value;
 
 
     let nameError = document.getElementById('nameError');
-    let vendorCodeError = document.getElementById('vendorCodeError');
+    let codeError = document.getElementById('codeError');
     let typeError = document.getElementById('typeError');
     let taxRegistrationNoError = document.getElementById('taxRegistrationNoError');
     let comRegistrationNoError = document.getElementById('comRegistrationNoError');
@@ -28,7 +32,10 @@ function saveButton(event) {
     let countryError = document.getElementById('countryError');
     let cityError = document.getElementById('cityError');
     let zipcodeError = document.getElementById('zipcodeError');
-    
+    let Nameerror = document.getElementById('Nameerror');
+    let Emailerror = document.getElementById('Emailerror');
+    let numError = document.getElementById('numError');
+    // let defaultError = document.getElementById('defaultError');
 
 
     let valid = true;
@@ -137,7 +144,47 @@ function saveButton(event) {
     else {
         zipcodeError.textContent = '';
     }
-
+    if (Name.trim() === "") {
+       Nameerror.textContent = " Required*";
+       Nameerror.style.color = "red";
+       Nameerror.style.fontSize = "13px";
+       Nameerror.style.paddingLeft = "15px";
+        valid = false;
+    }
+    else {
+       Nameerror.textContent = '';
+    }
+    if (Email.trim() === "") {
+       Emailerror.textContent = " Required*";
+       Emailerror.style.color = "red";
+       Emailerror.style.fontSize = "13px";
+       Emailerror.style.paddingLeft = "15px";
+        valid = false;
+    }
+    else {
+       Emailerror.textContent = '';
+    }
+    if (phoneno.trim() === "") {
+        numError.textContent = " Required*";
+        numError.style.color = "red";
+        numError.style.fontSize = "13px";
+        numError.style.paddingLeft = "15px";
+         valid = false;
+     }
+     else {
+        numError.textContent = '';
+     }
+    //  if (Default.trim() === "") {
+    //    defaultError.textContent = " Required*";
+    //    defaultError.style.color = "red";
+    //    defaultError.style.fontSize = "13px";
+    //    defaultError.style.paddingLeft = "15px";
+    //      valid = false;
+    //  }
+    //  else {
+    //    defaultError.textContent = '';
+    //  }
+ 
 }
 
 
@@ -281,3 +328,74 @@ function populateCityDropdown(cities) {
 }
 
 populateCountry();
+
+
+
+
+function updateSerialNumbers() {
+    const rows = document.querySelectorAll("#tableBody tr");
+    rows.forEach((row, index) => {
+        row.querySelector(".sno").textContent = index + 1; 
+    });
+}
+
+function addRow() {
+    const tableBody = document.getElementById("tableBody");
+    const newRow = document.createElement("tr");
+
+    newRow.innerHTML = `
+                <td class="sno" style="text-align: center;"></td>
+                <td>
+                    <div class="form-floating ">
+                        <input type="text" class="form-control border-1 rounded-0 border-start-0 border-end-0 border-top-0 " style="box-shadow: none;" id="Name" placeholder=" Name" name=" Name">
+                        <label for="name"> Name</label>
+                        <div id="Nameerror"></div>
+                    </div>
+                </td>
+                <td> 
+                    <div class="form-floating ">
+                        <input type="text" class="form-control border-1 rounded-0 border-start-0 border-end-0 border-top-0 " style="box-shadow: none;" id="Email" placeholder=" Email" name=" Email">
+                        <label for="Email"> Email</label>
+                        <div id="Emailerror"></div>
+                    </div>
+                </td>
+                <td>
+                    <div class="form-floating ">
+                        <input type="text" class="form-control border-1 rounded-0 border-start-0 border-end-0 border-top-0 " style="box-shadow: none;" id="phoneno" placeholder=" phno" name=" phno">
+                        <label for="phno">Phone No</label>
+                        <div id="numError"></div>
+                    </div>
+                </td>
+               
+                <td>
+                    <select class="form-select border-1 rounded-0 border-start-0 border-end-0 border-top-0 border-bottom-0"style=""id="default" placeholder="default"  name="default">
+                        <option value="" selected disabled>Is Default</option>
+                        <option value="">Yes</option>
+                        <option value="">No</option>
+                    </select>
+                    <label for="default"></label>
+                    <div id="defaultError"></div>
+                </td>
+                <td>
+                    <i class='bx bxs-trash text-danger fs-3 delete-row'  id="delete" ></i>
+                    </td>
+            
+    `;
+    
+
+    tableBody.appendChild(newRow);
+    updateSerialNumbers(); 
+}
+function removeRow(event) {
+    if (event.target.classList.contains("delete-row")) {
+        const row = event.target.closest("tr");
+        row.remove(); 
+        updateSerialNumbers();
+    }
+}
+document.getElementById("addRowButton").addEventListener("click", addRow); 
+document.getElementById("tableBody").addEventListener("click", removeRow); 
+
+
+
+// https://hastin-container.com/staging/api/vendor/create

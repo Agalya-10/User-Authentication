@@ -20,7 +20,7 @@
             <label for="username">Username</label>
             <div class="insert-icon">
             <i class='bx bxs-user'></i>
-            <input type="text" class="shadow form-control" placeholder=" Username"  name="username" id="userName">
+            <input type="text" class="shadow form-control  selected disabled" placeholder=" Username"  name="username" id="userName">
             </div>
             <div id="nameError"></div>
         </div>
@@ -37,7 +37,9 @@
                 <a class="pass " href="">Forgot Password!</a>
                 </div>
         </div>
+        <div class="parent-container3">
         <button class="submit " onclick="MyButton(event)">Login</button>
+        </div>
     </form>
 </div>
 
@@ -49,14 +51,18 @@
         <p>We've sent you OTP to your phone number.</p>
         <div>
             <span id="otpPrefix"> </span>
-            <input type="text" id="otpInput" maxlength="5" required>
+            <input type="text" id="otpInput"  class="selected disabled" maxlength="5" required>
         </div>
         <div class="timer d-flex mt-2">
         <i class='bx bxs-timer  fs-4'></i>
         <p id="timer">01:00</p>
         <a href=""class=" link" >Resend OTP</a>
         </div>
+        <div>
+            <div class="parent-container2">
         <button class="submitbutton" id="sendOtp" onclick="sendOtp()">Submit</button>
+        </div>
+    </div>
       
     </div>
 </div>
