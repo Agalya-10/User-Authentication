@@ -1,4 +1,5 @@
 
+
 async function fetchUserData() {
    
     try {
@@ -79,11 +80,9 @@ async function vendortable() {
         alert("There was an error fetching the user profile.");
     }
 }
-
 function displayTable(users) {
     const tableBody = document.getElementById('table2');
     tableBody.innerHTML = ''; 
-
     users.forEach((user,index) => {
         const row = `<tr>
        
@@ -94,14 +93,29 @@ function displayTable(users) {
             <td>${user.address}</td>
             <td>${user.country}</td>
             <td>${user.status}</td>
-             <td>
-                    <i class='bx bxs-edit-alt fs-3 text-success'></i>
-                </td>
+              <td>
+            <i class='bx bxs-edit-alt fs-3  text-success' data-id="${user.id}"></i>
 
+    </td>
         </tr>`;
         tableBody.innerHTML += row;
     });
+    const editIcons = tableBody.querySelectorAll('.bxs-edit-alt');
+    editIcons.forEach(icon => {
+        icon.addEventListener('click', (event) => {
+            const userId = event.target.getAttribute('data-id');
+            editUser(userId);
+        });
+    });
 }
+
+function editUser(id) {
+    console.log(id);
+    
+    window.location.href = `create.html?id=${id}`;
+}
+
+
 
 fetchUserData();
 vendortable();
