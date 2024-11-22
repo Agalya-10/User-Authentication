@@ -10,19 +10,11 @@ function getQueryParam() {
   }
   
   getQueryParam(); 
-
-let editingUserId = null; 
 let countryId = '';
 
 
 async function editUser(id) {
     const jwtToken = localStorage.getItem('jwtToken');
-        
-    if (!jwtToken) {
-        alert("Authorization token is missing.");
-        return;
-    }
-
         const response = await fetch(` https://hastin-container.com/staging/api/vendor/get/${id}`,{
             method: 'GET',
             headers: {
@@ -33,28 +25,31 @@ async function editUser(id) {
         if (response.ok) {
             // window.location ="create.html";
             const user = await response.json();
-            const data =user.data
-          document.getElementById('vendorName').value = data.vendorName;
-          document.getElementById('vendorCode').value = data.vendorCode;
-          document.getElementById('vendorType').value = data.vendorType;
-          document.getElementById('registrationNo').value = data.taxRegNo;
-          document.getElementById('comRegistrationNo').value = data.companyRegNo;
-          document.getElementById('Currency').value = data.vendorName;
-          document.getElementById('address1').value = data.address1;
-          document.getElementById('address2').value = data. address2;
-          document.getElementById('city').value = data.cityId;
-          document.getElementById('choose').value = data. country;
-          document.getElementById('zip').value = data.postalCode;
-        //   document.getElementById('Name').value = user.name;
-        //   document.getElementById('email').value = user.email;
-        //   document.getElementById('phoneno').value = user.mobileNo;
+            const data =user.data;
+        //    console.log(document.getElementById('vendorName').value);
+          document.getElementById('vendorName').value =data.vendorName;
+          document.getElementById('vendorCode').value =data.vendorCode;
+          document.getElementById('vendorType').value =data.vendorType;
+          document.getElementById('registrationNo').value =data.taxRegNo;
+          document.getElementById('comRegistrationNo').value =data.companyRegNo;
+          document.getElementById('currency').value =data.vendorName;
+          document.getElementById('address1').value =data.address1;
+          document.getElementById('address2').value =data. address2;
+          document.getElementById('city').value =data.cityId;
+          document.getElementById('country').value =data. country;
+          document.getElementById('zipCode').value =data.postalCode;
+          document.getElementById('accName').value =data.name;
+          document.getElementById('accNo').value =data.email;
+          document.getElementById('bankName').value =data.mobileNo;
+          document.getElementById('bankName').value =data.mobileNo;
 
 
-        for (let i = 0; i < data.contactList.length; i++) {
-            document.getElementById('Name').value = data.contactList[i].name;
-            document.getElementById('Email').value = data.contactList[i].email;
-            document.getElementById('phoneNumber').value = data.contactList[i].mobileNo;
-            document.getElementById('chooseDefault').value = data.contactList[i].isDefault;
+
+        for (let i = 0; i <data.contactList.length; i++) {
+            document.getElementById('Name').value =data.contactList[i].name;
+            document.getElementById('Email').value =data.contactList[i].email;
+            document.getElementById('phoneNumber').value =data.contactList[i].mobileNo;
+            document.getElementById('chooseDefault').value =data.contactList[i].isDefault;
           }
             editingUserId = id; 
            
@@ -64,10 +59,12 @@ async function editUser(id) {
         }
 
 }
+document.addEventListener('DOMContentLoaded', () => {
+    editUser();
+});
 
 
-
-async function saveButton(event) { 
+async function saveButton(event,id) { 
     event.preventDefault();
 
     let vendorName = document.getElementById('vendorName').value;
@@ -262,78 +259,154 @@ async function saveButton(event) {
 
 
     // Payload creation
-    const payload = {
-        contactList: [
-            {
-                name: Name,
-                email: Email,
-                mobileNo: phoneno,
-                isDefault: true, 
-                id: null,
-            }
-        ],
-        vendorName: vendorName,
-        vendorCode: vendorCode,
-        vendorType: vendorType,
-        taxRegNo: registrationNo,
-        companyRegNo: comRegistrationNo,
-        address1: address1,
-        address2: address2,
-        country: country,
-        postalCode: zipCode,
-        cityId: "baba903e-c5be-4165-a20a-c24dbb714325",
-        createdBy: "adf8906a-cf9a-490f-a233-4df16fc86c58",
-        documentList: []
-    };
+//     const payload = {
+//         contactList: [
+//             {
+//                 name: Name,
+//                 email: Email,
+//                 mobileNo: phoneno,
+//                 isDefault: true, 
+//                 id: null,
+//             }
+//         ],
+//         vendorName: vendorName,
+//         vendorCode: vendorCode,
+//         vendorType: vendorType,
+//         taxRegNo: registrationNo,
+//         companyRegNo: comRegistrationNo,
+//         address1: address1,
+//         address2: address2,
+//         country: country,
+//         postalCode: zipCode,
+//         cityId: "baba903e-c5be-4165-a20a-c24dbb714325",
+//         createdBy: "adf8906a-cf9a-490f-a233-4df16fc86c58",
+//         documentList: []
+//     };
 
-    try {
+//     try {
     
-        const jwtToken = localStorage.getItem('jwtToken');
-        if (!jwtToken) {
-            alert("Authorization token is missing. Please login again.");
-            return;
-        }
-        // let response;
-        if (editingUserId) {
-            response = await fetch(`https://hastin-container.com/staging/api/vendor/update${editingUserId}`, {
-                method: 'PUT',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'Authorization': `BslogiKey ${jwtToken}`
-                },
-                body: JSON.stringify(payload)
-            });
-        } else {
-           const response = await fetch('https://hastin-container.com/staging/api/vendor/create', {
+//         const jwtToken = localStorage.getItem('jwtToken');
+//         if (!jwtToken) {
+//             alert("Authorization token is missing. Please login again.");
+//             return;
+//         }
+//         // let response;
+//         if (id) {
+//             response = await fetch(`https://hastin-container.com/staging/api/vendor/update${id}`, {
+//                 method: 'PUT',
+//                 headers: {
+//                     'Content-Type': 'application/json',
+//                     'Authorization': `BslogiKey ${jwtToken}`
+//                 },
+//                 body: JSON.stringify(payload)
+//             });
+//         } else {
+//            const response = await fetch('https://hastin-container.com/staging/api/vendor/create', {
+//             method: 'POST',
+//             headers: {
+//                 'Content-Type': 'application/json',
+//                 'Authorization': `BslogiKey ${jwtToken}`
+//             },
+//             body: JSON.stringify(payload)
+//         });}
+    
+//         if (response.ok) {
+//             const result = await response.json();
+//             console.log(editingUserId ? "vendor updated successfully:" : "vendor created successfully:", result);
+//             alert(editingUserId ? "vendor updated successfully!" : "vendor created successfully!");
+//             // document.getElementById('formpage').reset(); 
+//             editingUserId = null; 
+//             fetchUserData();
+//             // const result = await response.json();
+//             // console.log("Vendor Created Successfully:", result);
+//             // alert("Vendor Created Successfully!");
+//         } else {
+//             const errorMessage = await response.text();
+//             console.error("Vendor creation failed:", errorMessage);
+//             alert(`Error: ${errorMessage}`);
+//         }
+//     } catch (error) {
+//         console.error("Error occurred:", error);
+//         alert("An unexpected error occurred. Please try again.");
+//     }
+
+// }
+
+
+
+
+const payload = {
+    contactList: [
+        {
+            name: document.getElementById('Name').value,
+            email: document.getElementById('Email').value,
+            mobileNo: document.getElementById('phoneNumber')?.value,
+            isDefault: true,
+            id: null,
+        },
+    ],
+    vendorName: document.getElementById('vendorName').value,
+    vendorCode: document.getElementById('vendorCode').value,
+    vendorType: document.getElementById('vendorType').value,
+    taxRegNo: document.getElementById('registrationNo').value,
+    companyRegNo: document.getElementById('comRegistrationNo').value,
+    address1: document.getElementById('address1').value,
+    address2: document.getElementById('address2').value,
+    country: document.getElementById('country').value,
+    postalCode: document.getElementById('zipCode').value,
+    cityId: "baba903e-c5be-4165-a20a-c24dbb714325",
+    createdBy: "adf8906a-cf9a-490f-a233-4df16fc86c58",
+    documentList: [],
+};
+
+try {
+    let response;
+    const jwtToken = localStorage.getItem('jwtToken');
+console.log(id)
+    if (id) {
+        console.log(id)
+        // Update vendor if ID is present
+        response = await fetch(`https://hastin-container.com/staging/api/vendor/update/${id}`, {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `BslogiKey ${jwtToken}`,
+            },
+            body: JSON.stringify(payload),
+        });
+    } else {
+        // Create new vendor
+        response = await fetch('https://hastin-container.com/staging/api/vendor/create', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
-                'Authorization': `BslogiKey ${jwtToken}`
+                'Authorization': `BslogiKey ${jwtToken}`,
             },
-            body: JSON.stringify(payload)
-        });}
-    
-        if (response.ok) {
-            const result = await response.json();
-            console.log(editingUserId ? "vendor updated successfully:" : "vendor created successfully:", result);
-            alert(editingUserId ? "vendor updated successfully!" : "vendor created successfully!");
-            // document.getElementById('formpage').reset(); 
-            editingUserId = null; 
-            fetchUserData();
-            // const result = await response.json();
-            // console.log("Vendor Created Successfully:", result);
-            // alert("Vendor Created Successfully!");
-        } else {
-            const errorMessage = await response.text();
-            console.error("Vendor creation failed:", errorMessage);
-            alert(`Error: ${errorMessage}`);
-        }
-    } catch (error) {
-        console.error("Error occurred:", error);
-        alert("An unexpected error occurred. Please try again.");
+            body: JSON.stringify(payload),
+        });
     }
 
+    if (response.ok) {
+        const result = await response.json();
+        alert(id ? "Vendor updated successfully!" : "Vendor created successfully!");
+        console.log(result);
+        editingUserId = null; // Reset editing ID
+        fetchUserData(); // Refresh data
+    } else {
+        const errorMessage = await response.text();
+        console.error("Operation failed:", errorMessage);
+        alert(`Error: ${errorMessage}`);
+    }
+} catch (error) {
+    console.error("Error occurred:", error);
+    alert("An unexpected error occurred. Please try again.");
 }
+}
+
+
+
+
+
 
 async function populateCurrencies() {
     try {

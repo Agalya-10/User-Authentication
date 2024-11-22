@@ -103,17 +103,15 @@ function displayTable(users) {
     const editIcons = tableBody.querySelectorAll('.bxs-edit-alt');
     editIcons.forEach(icon => {
         icon.addEventListener('click', (event) => {
+            console.log(event)
             const userId = event.target.getAttribute('data-id');
-            editUser(userId);
+            console.log(userId)
+            window.location.href = `create.html?id=${userId}`;
+            // editUser(userId);
         });
     });
 }
 
-function editUser(id) {
-    console.log(id);
-    
-    window.location.href = `create.html?id=${id}`;
-}
 
 
 
