@@ -1,590 +1,1372 @@
-function addButton() {
-    window.location = "create.html";
-}
-
-function getQueryParam() {
-    const urlParams = new URLSearchParams(window.location.search);
-    const id = urlParams.get('id'); 
-    console.log(id);
-    editUser(id);
-  }
+// function addButton() {
+//     window.location = "create.html";
+// }
+// // let countryIdget=""
+// // let parentId = "";
+// // let edit = false;
+// // function getQueryParam() {
+// //     const urlParams = new URLSearchParams(window.location.search);
+// //     const id = urlParams.get('id'); 
+// //     console.log(id);
+// //     editUser(id);
+// //   }
   
-  getQueryParam(); 
-let countryId = '';
+// //   getQueryParam(); 
+
+// // async function editUser(id) {
+// //     edit=true;
+// //     const jwtToken = localStorage.getItem('jwtToken');
+// //         const response = await fetch(` https://hastin-container.com/staging/api/vendor/get/${id}`,{
+// //             method: 'GET',
+// //             headers: {
+// //                 'Authorization': `BslogiKey ${jwtToken}`,
+// //                 'Content-Type': 'application/json',
+// //             },
+// //         });
+// //         if (response.ok) {
+// //             // window.location ="create.html";
+// //             const user = await response.json();
+// //             const data =user.data;
+// //             await populateCurrencies();
+// //             await populateCountry();
+// //             parentId=data.id;
+// //             console.log(parentId)
+// //         //    console.log(document.getElementById('vendorName').value);
+// //           document.getElementById('vendorName').value =data.vendorName;
+// //           document.getElementById('vendorCode').value =data.vendorCode;
+// //           document.getElementById('vendorType').value =data.vendorType;
+// //           document.getElementById('registrationNo').value =data.taxRegNo;
+// //           document.getElementById('comRegistrationNo').value =data.companyRegNo;
+// //           document.getElementById('currency').value =data.currency;
+// //           await populateCity();
+// //           document.getElementById('address1').value =data.address1;
+// //           document.getElementById('address2').value =data. address2;
+// //           document.getElementById('city').value =data.cityId;
+// //           document.getElementById('country').value =data. country;
+// //           countryIdget=data.country;
+// //           document.getElementById('zipCode').value =data.postalCode;
+// //           document.getElementById('accName').value =data.accName;
+// //           document.getElementById('accNo').value =data.accNo;
+// //           document.getElementById('bankName').value =data.bankName;
+// //           document.getElementById('branch').value =data.branch;
+// //           document.getElementById('swiftCode').value =data.swiftCode;
+
+          
 
 
-async function editUser(id) {
-    const jwtToken = localStorage.getItem('jwtToken');
-        const response = await fetch(` https://hastin-container.com/staging/api/vendor/get/${id}`,{
-            method: 'GET',
-            headers: {
-                'Authorization': `BslogiKey ${jwtToken}`,
-                'Content-Type': 'application/json',
-            },
-        });
-        if (response.ok) {
-            // window.location ="create.html";
-            const user = await response.json();
-            const data =user.data;
-        //    console.log(document.getElementById('vendorName').value);
-          document.getElementById('vendorName').value =data.vendorName;
-          document.getElementById('vendorCode').value =data.vendorCode;
-          document.getElementById('vendorType').value =data.vendorType;
-          document.getElementById('registrationNo').value =data.taxRegNo;
-          document.getElementById('comRegistrationNo').value =data.companyRegNo;
-          document.getElementById('currency').value =data.vendorName;
-          document.getElementById('address1').value =data.address1;
-          document.getElementById('address2').value =data. address2;
-          document.getElementById('city').value =data.cityId;
-          document.getElementById('country').value =data. country;
-          document.getElementById('zipCode').value =data.postalCode;
-          document.getElementById('accName').value =data.name;
-          document.getElementById('accNo').value =data.email;
-          document.getElementById('bankName').value =data.mobileNo;
-          document.getElementById('bankName').value =data.mobileNo;
+
+// //         for (let i = 0; i <data.contactList.length; i++) {
+// //             document.getElementById('Name').value =data.contactList[i].name;
+// //             document.getElementById('Email').value =data.contactList[i].email;
+// //             document.getElementById('phoneNumber').value =data.contactList[i].mobileNo;
+// //             document.getElementById('chooseDefault').value =data.contactList[i].isDefault;
+// //             document.getElementById("rowId").value = data.contactList[i].id;
+
+// //           }
+            
+// //         } else {
+// //             throw new Error("Failed to fetch user data");
+// //         }
+
+// // }
 
 
 
-        for (let i = 0; i <data.contactList.length; i++) {
-            document.getElementById('Name').value =data.contactList[i].name;
-            document.getElementById('Email').value =data.contactList[i].email;
-            document.getElementById('phoneNumber').value =data.contactList[i].mobileNo;
-            document.getElementById('chooseDefault').value =data.contactList[i].isDefault;
-          }
-            editingUserId = id; 
-           
+// // async function saveButton(event) { 
+// //     event.preventDefault();
 
-        } else {
-            throw new Error("Failed to fetch user data");
-        }
-
-}
-document.addEventListener('DOMContentLoaded', () => {
-    editUser();
-});
-
-
-async function saveButton(event,id) { 
-    event.preventDefault();
-
-    let vendorName = document.getElementById('vendorName').value;
-    let vendorCode = document.getElementById('vendorCode').value;
-    let vendorType = document.getElementById('vendorType').value;
-    let registrationNo = document.getElementById('registrationNo').value;
-    let comRegistrationNo = document.getElementById('comRegistrationNo').value;
-    let currency = document.getElementById('currency').value;
-    let address1 = document.getElementById('address1').value;
-    let address2 = document.getElementById('address2').value;
-    let country = document.getElementById('country').value;
-    let city= document.getElementById('city').value;
-    let zipCode = document.getElementById('zipCode').value;
-    let Name = document.getElementById('Name').value;
-    let Email = document.getElementById('Email').value;
-    let phoneno = document.getElementById('phoneno').value;
-    // let Default = document.getElementById('Default').value;
+// //     let vendorName = document.getElementById('vendorName').value;
+// //     let vendorCode = document.getElementById('vendorCode').value;
+// //     let vendorType = document.getElementById('vendorType').value;
+// //     let registrationNo = document.getElementById('registrationNo').value;
+// //     let comRegistrationNo = document.getElementById('comRegistrationNo').value;
+// //     let currency = document.getElementById('currency').value;
+// //     let address1 = document.getElementById('address1').value;
+// //     let address2 = document.getElementById('address2').value;
+// //     let country = document.getElementById('country').value;
+// //     let city= document.getElementById('city').value;
+// //     let zipCode = document.getElementById('zipCode').value;
+// //     let Name = document.getElementById('Name').value;
+// //     let Email = document.getElementById('Email').value;
+// //     let phoneno = document.getElementById('phoneno').value;
+// //     let Default = document.getElementById('Default').value;
+// //     let rowId= document.getElementById("rowId").value;
+// //     let accName = document.getElementById('accName').value;
+// //     let accNo = document.getElementById('accNo').value;
+// //     let bankName = document.getElementById('bankName').value;
+// //     let branch= document.getElementById("branch").value;
+// //     let swiftCode= document.getElementById("swiftCode").value;
 
 
-    let nameError = document.getElementById('nameError');
-    let codeError = document.getElementById('codeError');
-    let typeError = document.getElementById('typeError');
-    let taxRegistrationNoError = document.getElementById('taxRegistrationNoError');
-    let comRegistrationNoError = document.getElementById('comRegistrationNoError');
-    let currencyError = document.getElementById('currencyError');
-    let AddressError1 = document.getElementById('AddressError1');
-    let AddressError2 = document.getElementById('AddressError2');
-    let countryError = document.getElementById('countryError');
-    let cityError = document.getElementById('cityError');
-    let zipcodeError = document.getElementById('zipcodeError');
-    let Nameerror = document.getElementById('Nameerror');
-    let Emailerror = document.getElementById('Emailerror');
-    let numError = document.getElementById('numError');
-    // let defaultError = document.getElementById('defaultError');
 
-    let valid = true;
 
-    if (vendorName.trim() === "") {
-        nameError.textContent = "Required*";
-        nameError.style.color = "red";
-        nameError.style.fontSize = "13px";
-        nameError.style.paddingLeft = "15px";
-        valid = false;
-    }
-    else {
-        nameError.textContent = '';
-    }
-    if (vendorCode.trim() === "") {
-       codeError.textContent = "Required*";
-       codeError.style.color = "red";
-       codeError.style.fontSize = "13px";
-       codeError.style.paddingLeft = "15px";
-        valid = false;
-    }
-    else {
-       codeError.textContent = '';
-    }
 
-    if (vendorType.trim() === "") {
-        typeError.textContent = "Required*";
-        typeError.style.color = "red";
-        typeError.style.fontSize = "13px";
-        typeError.style.paddingLeft = "15px";
-         valid = false;
-     }
-     else {
-        typeError.textContent = '';
-     }
+// //     let nameError = document.getElementById('nameError');
+// //     let codeError = document.getElementById('codeError');
+// //     let typeError = document.getElementById('typeError');
+// //     let taxRegistrationNoError = document.getElementById('taxRegistrationNoError');
+// //     let comRegistrationNoError = document.getElementById('comRegistrationNoError');
+// //     let currencyError = document.getElementById('currencyError');
+// //     let AddressError1 = document.getElementById('AddressError1');
+// //     let AddressError2 = document.getElementById('AddressError2');
+// //     let countryError = document.getElementById('countryError');
+// //     let cityError = document.getElementById('cityError');
+// //     let zipcodeError = document.getElementById('zipcodeError');
+// //     let Nameerror = document.getElementById('Nameerror');
+// //     let Emailerror = document.getElementById('Emailerror');
+// //     let numError = document.getElementById('numError');
+// //     // let defaultError = document.getElementById('defaultError');
+
+// //     let valid = true;
+
+// //     if (vendorName.trim() === "") {
+// //         nameError.textContent = "Required*";
+// //         nameError.style.color = "red";
+// //         nameError.style.fontSize = "13px";
+// //         nameError.style.paddingLeft = "15px";
+// //         valid = false;
+// //     }
+// //     else {
+// //         nameError.textContent = '';
+// //     }
+// //     if (vendorCode.trim() === "") {
+// //        codeError.textContent = "Required*";
+// //        codeError.style.color = "red";
+// //        codeError.style.fontSize = "13px";
+// //        codeError.style.paddingLeft = "15px";
+// //         valid = false;
+// //     }
+// //     else {
+// //        codeError.textContent = '';
+// //     }
+
+// //     if (vendorType.trim() === "") {
+// //         typeError.textContent = "Required*";
+// //         typeError.style.color = "red";
+// //         typeError.style.fontSize = "13px";
+// //         typeError.style.paddingLeft = "15px";
+// //          valid = false;
+// //      }
+// //      else {
+// //         typeError.textContent = '';
+// //      }
  
-     if (registrationNo.trim() === "") {
-       taxRegistrationNoError.textContent = "Required*";
-       taxRegistrationNoError.style.color = "red";
-       taxRegistrationNoError.style.fontSize = "13px";
-       taxRegistrationNoError.style.paddingLeft = "15px";
-         valid = false;
-     }
-     else {
-       taxRegistrationNoError.textContent = '';
-     }
+// //      if (registrationNo.trim() === "") {
+// //        taxRegistrationNoError.textContent = "Required*";
+// //        taxRegistrationNoError.style.color = "red";
+// //        taxRegistrationNoError.style.fontSize = "13px";
+// //        taxRegistrationNoError.style.paddingLeft = "15px";
+// //          valid = false;
+// //      }
+// //      else {
+// //        taxRegistrationNoError.textContent = '';
+// //      }
 
-     if (comRegistrationNo.trim() === "") {
-       comRegistrationNoError.textContent = " Required*";
-       comRegistrationNoError.style.color = "red";
-       comRegistrationNoError.style.fontSize = "13px";
-       comRegistrationNoError.style.paddingLeft = "15px";
-         valid = false;
-     }
-     else {
-       comRegistrationNoError.textContent = '';
-     }
-     if (currency.trim() === "") {
-        currencyError.textContent = " Required*";
-        currencyError.style.color = "red";
-        currencyError.style.fontSize = "13px";
-        currencyError.style.paddingLeft = "15px";
-         valid = false;
-     }
-     else {
-        currencyError.textContent = '';
-     }
-     if (address1.trim() === "") {
-        AddressError1.textContent = " Required*";
-        AddressError1.style.color = "red";
-        AddressError1.style.fontSize = "13px";
-        AddressError1.style.paddingLeft = "15px";
-         valid = false;
-     }
-     else {
-        AddressError1.textContent = '';
-     }
-     if (address2.trim() === "") {
-        AddressError2.textContent = " Required*";
-        AddressError2.style.color = "red";
-        AddressError2.style.fontSize = "13px";
-        AddressError2.style.paddingLeft = "15px";
-         valid = false;
-     }
-     else {
-        AddressError2.textContent = '';
-     }
+// //      if (comRegistrationNo.trim() === "") {
+// //        comRegistrationNoError.textContent = " Required*";
+// //        comRegistrationNoError.style.color = "red";
+// //        comRegistrationNoError.style.fontSize = "13px";
+// //        comRegistrationNoError.style.paddingLeft = "15px";
+// //          valid = false;
+// //      }
+// //      else {
+// //        comRegistrationNoError.textContent = '';
+// //      }
+// //      if (currency.trim() === "") {
+// //         currencyError.textContent = " Required*";
+// //         currencyError.style.color = "red";
+// //         currencyError.style.fontSize = "13px";
+// //         currencyError.style.paddingLeft = "15px";
+// //          valid = false;
+// //      }
+// //      else {
+// //         currencyError.textContent = '';
+// //      }
+// //      if (address1.trim() === "") {
+// //         AddressError1.textContent = " Required*";
+// //         AddressError1.style.color = "red";
+// //         AddressError1.style.fontSize = "13px";
+// //         AddressError1.style.paddingLeft = "15px";
+// //          valid = false;
+// //      }
+// //      else {
+// //         AddressError1.textContent = '';
+// //      }
+// //      if (address2.trim() === "") {
+// //         AddressError2.textContent = " Required*";
+// //         AddressError2.style.color = "red";
+// //         AddressError2.style.fontSize = "13px";
+// //         AddressError2.style.paddingLeft = "15px";
+// //          valid = false;
+// //      }
+// //      else {
+// //         AddressError2.textContent = '';
+// //      }
      
-     if (country.trim() === "") {
-        countryError.textContent = " Required*";
-        countryError.style.color = "red";
-        countryError.style.fontSize = "13px";
-        countryError.style.paddingLeft = "15px";
-         valid = false;
-     }
-     else {
-        countryError.textContent = '';
-     }
-     if (city.trim() === "") {
-         cityError.textContent = " Required*";
-         cityError.style.color = "red";
-         cityError.style.fontSize = "13px";
-         cityError.style.paddingLeft = "15px";
-         valid = false;
-     }
-     else {
-         cityError.textContent = '';
-     }
-     if (zipCode.trim() === "") {
-        zipcodeError.textContent = " Required*";
-        zipcodeError.style.color = "red";
-        zipcodeError.style.fontSize = "13px";
-        zipcodeError.style.paddingLeft = "15px";
-        valid = false;
-    }
-    else {
-        zipcodeError.textContent = '';
-    }
-    if (Name.trim() === "") {
-       Nameerror.textContent = " Required*";
-       Nameerror.style.color = "red";
-       Nameerror.style.fontSize = "13px";
-       Nameerror.style.paddingLeft = "15px";
-        valid = false;
-    }
-    else {
-       Nameerror.textContent = '';
-    }
-    if (Email.trim() === "") {
-       Emailerror.textContent = " Required*";
-       Emailerror.style.color = "red";
-       Emailerror.style.fontSize = "13px";
-       Emailerror.style.paddingLeft = "15px";
-        valid = false;
-    }
-    else {
-       Emailerror.textContent = '';
-    }
-    if (phoneno.trim() === "") {
-        numError.textContent = " Required*";
-        numError.style.color = "red";
-        numError.style.fontSize = "13px";
-        numError.style.paddingLeft = "15px";
-         valid = false;
-     }
-     else {
-        numError.textContent = '';
-     }
-    //  if (Default.trim() === "") {
-    //    defaultError.textContent = " Required*";
-    //    defaultError.style.color = "red";
-    //    defaultError.style.fontSize = "13px";
-    //    defaultError.style.paddingLeft = "15px";
-    //      valid = false;
-    //  }
-    //  else {
-    //    defaultError.textContent = '';
-    //  }
+// //      if (country.trim() === "") {
+// //         countryError.textContent = " Required*";
+// //         countryError.style.color = "red";
+// //         countryError.style.fontSize = "13px";
+// //         countryError.style.paddingLeft = "15px";
+// //          valid = false;
+// //      }
+// //      else {
+// //         countryError.textContent = '';
+// //      }
+// //      if (city.trim() === "") {
+// //          cityError.textContent = " Required*";
+// //          cityError.style.color = "red";
+// //          cityError.style.fontSize = "13px";
+// //          cityError.style.paddingLeft = "15px";
+// //          valid = false;
+// //      }
+// //      else {
+// //          cityError.textContent = '';
+// //      }
+// //      if (zipCode.trim() === "") {
+// //         zipcodeError.textContent = " Required*";
+// //         zipcodeError.style.color = "red";
+// //         zipcodeError.style.fontSize = "13px";
+// //         zipcodeError.style.paddingLeft = "15px";
+// //         valid = false;
+// //     }
+// //     else {
+// //         zipcodeError.textContent = '';
+// //     }
+// //     if (Name.trim() === "") {
+// //        Nameerror.textContent = " Required*";
+// //        Nameerror.style.color = "red";
+// //        Nameerror.style.fontSize = "13px";
+// //        Nameerror.style.paddingLeft = "15px";
+// //         valid = false;
+// //     }
+// //     else {
+// //        Nameerror.textContent = '';
+// //     }
+// //     if (Email.trim() === "") {
+// //        Emailerror.textContent = " Required*";
+// //        Emailerror.style.color = "red";
+// //        Emailerror.style.fontSize = "13px";
+// //        Emailerror.style.paddingLeft = "15px";
+// //         valid = false;
+// //     }
+// //     else {
+// //        Emailerror.textContent = '';
+// //     }
+// //     if (phoneno.trim() === "") {
+// //         numError.textContent = " Required*";
+// //         numError.style.color = "red";
+// //         numError.style.fontSize = "13px";
+// //         numError.style.paddingLeft = "15px";
+// //          valid = false;
+// //      }
+// //      else {
+// //         numError.textContent = '';
+// //      }
+   
 
 
-    // Payload creation
+// // if(valid){
+// //     const jwtToken = localStorage.getItem('jwtToken');
+// // if(edit){
+// //     const payload = {
+// //         id: parentId,
+// //                         vendorName: vendorName,
+// //                         vendorCode: vendorCode,
+// //                         vendorType: vendorType,
+// //                         taxRegNo: registrationNo,
+// //                         companyRegNo: comRegistrationNo,
+// //                         defaultCurrencyId:currency,
+// //                         address1: address1,
+// //                         address2: address2,
+// //                         country: country,
+// //                         postalCode: zipCode,
+// //                         cityId: city,
+// //                         cityName: "",
+// //                         notes: "",
+// //                         createdBy: "adf8906a-cf9a-490f-a233-4df16fc86c58",
+// //                         documentList: [],
+// //                         contactList: [
+// //                             {
+// //                                 name: Name,
+// //                                 email: Email,
+// //                                 mobileNo: phoneno,
+// //                                 isDefault: true, 
+// //                                 id: rowId ? rowId:"" ,
+// //                             }
+// //                         ],
+// //                     };
+// //                     try {
+// //                     response = await fetch(`https://hastin-container.com/staging/api/vendor/update`, {
+// //                         method: 'PUT',
+// //                         headers: {
+// //                             'Content-Type': 'application/json',
+// //                             'Authorization': `BslogiKey ${jwtToken}`,
+// //                         },
+// //                         body: JSON.stringify(payload),
+// //                     });
+// //                     if (response.ok) {
+// //                         const result = await response.json();
+// //                         console.log("Vendor updated successfully!" ,result);
+                        
+// //                     } else {
+// //                         const errorMessage = await response.text();
+// //                         console.error("Operation failed:", errorMessage);
+// //                         alert(`Error: ${errorMessage}`);
+// //                     }
+// //                 }catch (error) {
+// //                     console.error("Error occurred:", error);
+// //                     alert("An unexpected error occurred. Please try again.");
+// //                 }
+// // } else {
+// //     const payload = {
+// //         contactList: [
+// //                             {
+// //                                 name: Name,
+// //                                 email: Email,
+// //                                 mobileNo: phoneno,
+// //                                 isDefault: true, 
+// //                                 id: rowId ? rowId:"" ,
+// //                             }
+// //                         ],
+// //                         vendorName: vendorName,
+// //                         vendorCode: vendorCode,
+// //                         vendorType: vendorType,
+// //                         taxRegNo: registrationNo,
+// //                         companyRegNo: comRegistrationNo,
+// //                         defaultCurrencyId:currency,
+// //                         address1: address1,
+// //                         address2: address2,
+// //                         country: country,
+// //                         postalCode: zipCode,
+// //                         cityId: city,
+// //                         createdBy: "adf8906a-cf9a-490f-a233-4df16fc86c58",
+// //                         documentList: []
+// //                     };
+// // try{
+// //     response = await fetch('https://hastin-container.com/staging/api/vendor/create', {
+// //         method: 'POST',
+// //         headers: {
+// //             'Content-Type': 'application/json',
+// //             'Authorization': `BslogiKey ${jwtToken}`,
+// //         },
+// //         body: JSON.stringify(payload),
+// //     });
+
+// //     if (response.ok) {
+// //         const result = await response.json();
+// //         console.log("Vendor created successfully!" ,result);
+        
+// //     }else {
+// //         const errorMessage = await response.text();
+// //         console.error("Operation failed:", errorMessage);
+// //         alert(`Error: ${errorMessage}`);
+// //     }
+// // }catch (error) {
+// //     console.error("Error occurred:", error);
+// //     alert("An unexpected error occurred. Please try again.");
+// // }
+
+// // }
+// // }
+// // }
+
+
+// let countryIdget = "";
+// let parentId = "";
+// let edit = false;
+
+// function getQueryParam() {
+//     const urlParams = new URLSearchParams(window.location.search);
+//     const id = urlParams.get('id'); 
+//     console.log(id);
+//     if (id) {
+//         editUser(id);
+//     }
+// }
+
+// getQueryParam();
+
+// async function editUser(id) {
+//     edit = true;
+//     const jwtToken = localStorage.getItem('jwtToken');
+
+//     try {
+//         const response = await fetch(`https://hastin-container.com/staging/api/vendor/get/${id}`, {
+//             method: 'GET',
+//             headers: {
+//                 'Authorization': `BslogiKey ${jwtToken}`,
+//                 'Content-Type': 'application/json',
+//             },
+//         });
+
+//         if (response.ok) {
+//             const user = await response.json();
+//             const data = user.data;
+
+//             // Populate form fields
+//             parentId = data.id;
+//             console.log(parentId);
+
+//             document.getElementById('vendorName').value = data.vendorName;
+//             document.getElementById('vendorCode').value = data.vendorCode;
+//             document.getElementById('vendorType').value = data.vendorType;
+//             document.getElementById('registrationNo').value = data.taxRegNo;
+//             document.getElementById('comRegistrationNo').value = data.companyRegNo;
+//             document.getElementById('currency').value = data.currency;
+//             document.getElementById('address1').value = data.address1;
+//             document.getElementById('address2').value = data.address2;
+//             document.getElementById('city').value = data.cityId;
+//             document.getElementById('country').value = data.country;
+//             countryIdget = data.country;
+//             document.getElementById('zipCode').value = data.postalCode;
+//             document.getElementById('accName').value = data.accName;
+//             document.getElementById('accNo').value = data.accNo;
+//             document.getElementById('bankName').value = data.bankName;
+//             document.getElementById('branch').value = data.branch;
+//             document.getElementById('swiftCode').value = data.swiftCode;
+
+//             // Populate contact list (assumes single contact for simplicity)
+//             if (data.contactList.length > 0) {
+//                 const contact = data.contactList[0];
+//                 document.getElementById('Name').value = contact.name;
+//                 document.getElementById('Email').value = contact.email;
+//                 document.getElementById('phoneno').value = contact.mobileNo;
+//                 document.getElementById('Default').value = contact.isDefault;
+//                 document.getElementById("rowId").value = contact.id;
+//             }
+
+//         } else {
+//             console.error("Failed to fetch user data");
+//         }
+//     } catch (error) {
+//         console.error("Error occurred:", error);
+//     }
+// }
+
+// async function saveButton(event) {
+//     event.preventDefault();
+
+//     // Form data
+//     const vendorName = document.getElementById('vendorName').value.trim();
+//     const vendorCode = document.getElementById('vendorCode').value.trim();
+//     const vendorType = document.getElementById('vendorType').value.trim();
+//     const taxRegNo = document.getElementById('registrationNo').value.trim();
+//     const companyRegNo = document.getElementById('comRegistrationNo').value.trim();
+//     const currency = document.getElementById('currency').value.trim();
+//     const address1 = document.getElementById('address1').value.trim();
+//     const address2 = document.getElementById('address2').value.trim();
+//     const country = document.getElementById('country').value.trim();
+//     const city = document.getElementById('city').value.trim();
+//     const postalCode= document.getElementById('zipCode').value.trim();
+//     const name = document.getElementById('Name').value.trim();
+//     const email = document.getElementById('Email').value.trim();
+//     const mobileNo = document.getElementById('phoneno').value.trim();
+//     const defaultCurrencyId = document.getElementById('Default').value.trim();
+//     const rowId = document.getElementById("rowId").value?.trim();
+//     const bankAcctName = document.getElementById('accName').value.trim();
+//     const bankAccountNum = document.getElementById('accNo').value.trim();
+//     const bankName = document.getElementById('bankName').value.trim();
+//     const bankBranchName = document.getElementById('branch').value.trim();
+//     const bankSwiftCode = document.getElementById('swiftCode').value.trim();
+
+//     // Validation logic (can be added here)
+//     if (!vendorName || !vendorCode || !vendorType) {
+//         alert("Please fill all required fields.");
+//         return;
+//     }
+
+//     const jwtToken = localStorage.getItem('jwtToken');
 //     const payload = {
+//         vendorName,
+//         vendorCode,
+//         vendorType,
+//         taxRegNo,
+//         companyRegNo,
+//         defaultCurrencyId: currency,
+//         address1,
+//         address2,
+//         country,
+//         postalCode,
+//         cityId: city,
 //         contactList: [
 //             {
-//                 name: Name,
-//                 email: Email,
-//                 mobileNo: phoneno,
-//                 isDefault: true, 
-//                 id: null,
+//                 name: name,
+//                 email: email,
+//                 mobileNo: mobileNo,
+//                 isDefault: true,
+//                 id: rowId ? rowId : "",
 //             }
 //         ],
-//         vendorName: vendorName,
-//         vendorCode: vendorCode,
-//         vendorType: vendorType,
-//         taxRegNo: registrationNo,
-//         companyRegNo: comRegistrationNo,
-//         address1: address1,
-//         address2: address2,
-//         country: country,
-//         postalCode: zipCode,
-//         cityId: "baba903e-c5be-4165-a20a-c24dbb714325",
-//         createdBy: "adf8906a-cf9a-490f-a233-4df16fc86c58",
-//         documentList: []
+//         bankAcctName,
+//         bankAccountNum,
+//         bankName,
+//         bankBranchName,
+//         bankSwiftCode,
+//         documentList: [],
+//         createdBy: "adf8906a-cf9a-490f-a233-4df16fc86c58"
 //     };
 
 //     try {
-    
-//         const jwtToken = localStorage.getItem('jwtToken');
-//         if (!jwtToken) {
-//             alert("Authorization token is missing. Please login again.");
-//             return;
-//         }
-//         // let response;
-//         if (id) {
-//             response = await fetch(`https://hastin-container.com/staging/api/vendor/update${id}`, {
+//         let response;
+//         if (edit) {
+//             // Update vendor
+//             payload.id = parentId;
+//             response = await fetch('https://hastin-container.com/staging/api/vendor/update', {
 //                 method: 'PUT',
 //                 headers: {
 //                     'Content-Type': 'application/json',
-//                     'Authorization': `BslogiKey ${jwtToken}`
+//                     'Authorization': `BslogiKey ${jwtToken}`,
 //                 },
-//                 body: JSON.stringify(payload)
+//                 body: JSON.stringify(payload),
 //             });
 //         } else {
-//            const response = await fetch('https://hastin-container.com/staging/api/vendor/create', {
-//             method: 'POST',
-//             headers: {
-//                 'Content-Type': 'application/json',
-//                 'Authorization': `BslogiKey ${jwtToken}`
-//             },
-//             body: JSON.stringify(payload)
-//         });}
-    
+//             // Create vendor
+//             response = await fetch('https://hastin-container.com/staging/api/vendor/create', {
+//                 method: 'POST',
+//                 headers: {
+//                     'Content-Type': 'application/json',
+//                     'Authorization': `BslogiKey ${jwtToken}`,
+//                 },
+//                 body: JSON.stringify(payload),
+//             });
+//         }
+
 //         if (response.ok) {
 //             const result = await response.json();
-//             console.log(editingUserId ? "vendor updated successfully:" : "vendor created successfully:", result);
-//             alert(editingUserId ? "vendor updated successfully!" : "vendor created successfully!");
-//             // document.getElementById('formpage').reset(); 
-//             editingUserId = null; 
-//             fetchUserData();
-//             // const result = await response.json();
-//             // console.log("Vendor Created Successfully:", result);
-//             // alert("Vendor Created Successfully!");
+//             console.log("Operation successful:", result);
+//             alert(edit ? "Vendor updated successfully!" : "Vendor created successfully!");
 //         } else {
 //             const errorMessage = await response.text();
-//             console.error("Vendor creation failed:", errorMessage);
+//             console.error("Operation failed:", errorMessage);
 //             alert(`Error: ${errorMessage}`);
 //         }
 //     } catch (error) {
 //         console.error("Error occurred:", error);
 //         alert("An unexpected error occurred. Please try again.");
 //     }
-
 // }
 
 
 
 
-const payload = {
-    contactList: [
-        {
-            name: document.getElementById('Name').value,
-            email: document.getElementById('Email').value,
-            mobileNo: document.getElementById('phoneNumber')?.value,
-            isDefault: true,
-            id: null,
-        },
-    ],
-    vendorName: document.getElementById('vendorName').value,
-    vendorCode: document.getElementById('vendorCode').value,
-    vendorType: document.getElementById('vendorType').value,
-    taxRegNo: document.getElementById('registrationNo').value,
-    companyRegNo: document.getElementById('comRegistrationNo').value,
-    address1: document.getElementById('address1').value,
-    address2: document.getElementById('address2').value,
-    country: document.getElementById('country').value,
-    postalCode: document.getElementById('zipCode').value,
-    cityId: "baba903e-c5be-4165-a20a-c24dbb714325",
-    createdBy: "adf8906a-cf9a-490f-a233-4df16fc86c58",
-    documentList: [],
-};
 
-try {
-    let response;
-    const jwtToken = localStorage.getItem('jwtToken');
-console.log(id)
-    if (id) {
-        console.log(id)
-        // Update vendor if ID is present
-        response = await fetch(`https://hastin-container.com/staging/api/vendor/update/${id}`, {
-            method: 'PUT',
-            headers: {
-                'Content-Type': 'application/json',
-                'Authorization': `BslogiKey ${jwtToken}`,
-            },
-            body: JSON.stringify(payload),
-        });
-    } else {
-        // Create new vendor
-        response = await fetch('https://hastin-container.com/staging/api/vendor/create', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-                'Authorization': `BslogiKey ${jwtToken}`,
-            },
-            body: JSON.stringify(payload),
-        });
-    }
 
-    if (response.ok) {
-        const result = await response.json();
-        alert(id ? "Vendor updated successfully!" : "Vendor created successfully!");
-        console.log(result);
-        editingUserId = null; // Reset editing ID
-        fetchUserData(); // Refresh data
-    } else {
-        const errorMessage = await response.text();
-        console.error("Operation failed:", errorMessage);
-        alert(`Error: ${errorMessage}`);
-    }
-} catch (error) {
-    console.error("Error occurred:", error);
-    alert("An unexpected error occurred. Please try again.");
-}
-}
+// // try {
+// //     let response;
+// // console.log(id)
+// //     if (editingUserId) {
+// //         console.log(id)
+// //         // Update vendor if ID is present
+// //         response = await fetch(`https://hastin-container.com/staging/api/vendor/update/${id}`, {
+// //             method: 'PUT',
+// //             headers: {
+// //                 'Content-Type': 'application/json',
+// //                 'Authorization': `BslogiKey ${jwtToken}`,
+// //             },
+// //             body: JSON.stringify(payload),
+// //         });
+// //     } else {
+// //         // Create new vendor
+// //         response = await fetch('https://hastin-container.com/staging/api/vendor/create', {
+// //             method: 'POST',
+// //             headers: {
+// //                 'Content-Type': 'application/json',
+// //                 'Authorization': `BslogiKey ${jwtToken}`,
+// //             },
+// //             body: JSON.stringify(payload),
+// //         });
+// //     }
+
+// //     if (response.ok) {
+// //         const result = await response.json();
+// //         alert(id ? "Vendor updated successfully!" : "Vendor created successfully!");
+// //         console.log(result);
+// //         editingUserId = null; // Reset editing ID
+// //         fetchUserData(); // Refresh data
+// //     } else {
+// //         const errorMessage = await response.text();
+// //         console.error("Operation failed:", errorMessage);
+// //         alert(`Error: ${errorMessage}`);
+// //     }
+// // } catch (error) {
+// //     console.error("Error occurred:", error);
+// //     alert("An unexpected error occurred. Please try again.");
+// // }
+// // }
 
 
 
 
 
 
-async function populateCurrencies() {
-    try {
-        const jwtToken = localStorage.getItem('jwtToken');
+// async function populateCurrencies() {
+//     try {
+//         const jwtToken = localStorage.getItem('jwtToken');
         
-        if (!jwtToken) {
-            alert("Authorization token is missing.");
-            return;
-        }
-        const response = await fetch('https://hastin-container.com/staging/api/meta/currencies', {
-            method: 'GET',
-            headers: {
-                'Authorization': `BslogiKey ${jwtToken}`,
-                'Content-Type': 'application/json',
-            },
-        });
-        if (!response.ok) {
-            throw new Error('Failed to fetch currencies');
-        }
-        const data = await response.json();
-        console.log(data);
+//         if (!jwtToken) {
+//             alert("Authorization token is missing.");
+//             return;
+//         }
+//         const response = await fetch('https://hastin-container.com/staging/api/meta/currencies', {
+//             method: 'GET',
+//             headers: {
+//                 'Authorization': `BslogiKey ${jwtToken}`,
+//                 'Content-Type': 'application/json',
+//             },
+//         });
+//         if (!response.ok) {
+//             throw new Error('Failed to fetch currencies');
+//         }
+//         const data = await response.json();
+//         console.log(data);
 
-        const currency = data?.data;
+//         const currency = data?.data;
 
-        if (!Array.isArray(currency)) {
-            throw new Error('Currency data is missing or invalid.');
-        }
-        const dropdown = document.getElementById('currency');
-        dropdown.innerHTML = '<option value="" disabled selected></option>';
+//         if (!Array.isArray(currency)) {
+//             throw new Error('Currency data is missing or invalid.');
+//         }
+//         const dropdown = document.getElementById('currency');
+//         dropdown.innerHTML = '<option value="" disabled selected></option>';
 
-        currency.forEach(currencys => {
-            const option = document.createElement('option');
-            option.value = currencys.code; 
-            option.textContent = currencys.name; 
-            dropdown.appendChild(option); 
-        });
-    } catch (error) {
-        console.error('Error:', error.message);
-        const errorDiv = document.getElementById('currencyError');
-        errorDiv.textContent = `Error: ${error.message}`;
-        errorDiv.style.color = 'red';
-    }
+//         currency.forEach(currencys => {
+//             const option = document.createElement('option');
+//             option.value = currencys.code; 
+//             option.textContent = currencys.name; 
+//             dropdown.appendChild(option); 
+//         });
+//     } catch (error) {
+//         console.error('Error:', error.message);
+//         const errorDiv = document.getElementById('currencyError');
+//         errorDiv.textContent = `Error: ${error.message}`;
+//         errorDiv.style.color = 'red';
+//     }
+// }
+
+
+// populateCurrencies();
+
+
+// async function populateCountry() {
+//     try {
+//         const jwtToken = localStorage.getItem('jwtToken');
+//         if (!jwtToken) {
+//             alert("Authorization token is missing.");
+//             return;
+//         }
+
+//         const response = await fetch('https://hastin-container.com/staging/api/meta/country', {
+//             method: 'GET',
+//             headers: {
+//                 'Authorization': `BslogiKey ${jwtToken}`,
+//                 'Content-Type': 'application/json',
+//             },
+//         });
+
+//         if (!response.ok) {
+//             throw new Error('Failed to fetch countries');
+//         }
+
+//         const data = await response.json();
+//         const countries = data?.data;
+
+//         if (!Array.isArray(countries)) {
+//             throw new Error('Country data is missing or invalid.');
+//         }
+
+//         const countryDropdown = document.getElementById('country');
+
+//         countries.forEach(country => {
+//             const option = document.createElement('option');
+//             option.value = country.id;
+//             option.textContent = country.name;
+//             countryDropdown.appendChild(option);
+//         });
+
+//         countryDropdown.addEventListener('change', (event) => {
+//             const selectedCountryId = event.target.value; 
+//             populateCity(selectedCountryId); 
+//         });
+//     } catch (error) {
+//         console.error('Error:', error.message);
+//     }
+// }
+
+
+// async function populateCity(countryId) {
+//     try {
+//         const jwtToken = localStorage.getItem('jwtToken');
+//         if (!jwtToken) {
+//             alert("Authorization token is missing.");
+//             return;
+//         }
+
+//         const response = await fetch('https://hastin-container.com/staging/api/countryCities/get', {
+//             method: 'GET',
+//             headers: {
+//                 'Authorization': `BslogiKey ${jwtToken}`,
+//                 'Content-Type': 'application/json',
+//             },
+//         });
+
+//         if (!response.ok) {
+//             throw new Error('Failed to fetch cities');
+//         }
+
+//         const data = await response.json();
+//         const cities = data?.data;
+
+//         const filteredCities = cities.filter(city => city.countryId === countryId);
+//         populateCityDropdown(filteredCities); 
+//     } catch (error) {
+//         console.error('Error:', error.message);
+//     }
+// }
+
+// function populateCityDropdown(cities) {
+//     const cityDropdown = document.getElementById('city');
+
+//     cities.forEach(city => {
+//         const option = document.createElement('option');
+//         option.value = city.id; 
+//         option.textContent = city.cityName; 
+//         cityDropdown.appendChild(option);
+//     });
+// }
+
+// populateCountry();
+
+
+
+
+// function updateSerialNumbers() {
+//     const rows = document.querySelectorAll("#tableBody tr");
+//     rows.forEach((row, index) => {
+//         row.querySelector(".sno").textContent = index + 1; 
+//     });
+// }
+
+// function addRow() {
+//     const tableBody = document.getElementById("tableBody");
+//     const newRow = document.createElement("tr");
+
+//     newRow.innerHTML = `
+//                 <td class="sno" style="text-align: center;"></td>
+//                 <td>
+//                     <div class="form-floating ">
+//                         <input type="text" class="form-control border-1 rounded-0 border-start-0 border-end-0 border-top-0 " style="box-shadow: none;" id="Name" placeholder=" Name" name=" Name">
+//                         <label for="name"> Name</label>
+//                         <div id="Nameerror"></div>
+//                     </div>
+//                 </td>
+//                 <td> 
+//                     <div class="form-floating ">
+//                         <input type="text" class="form-control border-1 rounded-0 border-start-0 border-end-0 border-top-0 " style="box-shadow: none;" id="Email" placeholder=" Email" name=" Email">
+//                         <label for="Email"> Email</label>
+//                         <div id="Emailerror"></div>
+//                     </div>
+//                 </td>
+//                 <td>
+//                     <div class="form-floating ">
+//                         <input type="text" class="form-control border-1 rounded-0 border-start-0 border-end-0 border-top-0 " style="box-shadow: none;" id="phoneno" placeholder=" phno" name=" phno">
+//                         <label for="phno">Phone No</label>
+//                         <div id="numError"></div>
+//                     </div>
+//                 </td>
+               
+//                 <td>
+//                     <select class="form-select border-1 rounded-0 border-start-0 border-end-0 border-top-0 border-bottom-0"style=""id="default" placeholder="default"  name="default">
+//                         <option value="" selected disabled>Is Default</option>
+//                         <option value="">Yes</option>
+//                         <option value="">No</option>
+//                     </select>
+//                     <label for="default"></label>
+//                     <div id="defaultError"></div>
+//                 </td>
+//                 <td>
+//                     <i class='bx bxs-trash text-danger fs-3 delete-row'  id="delete" ></i>
+//                     </td>
+            
+//     `;
+    
+
+//     tableBody.appendChild(newRow);
+//     updateSerialNumbers(); 
+// }
+// function removeRow(event) {
+//     if (event.target.classList.contains("delete-row")) {
+//         const row = event.target.closest("tr");
+//         row.remove(); 
+//         updateSerialNumbers();
+//     }
+// }
+// document.getElementById("addRowButton").addEventListener("click", addRow); 
+// document.getElementById("tableBody").addEventListener("click", removeRow);
+
+
+
+
+let countryIdGet = "";
+let parentId = "";
+let edit = false;
+function getQueryParam() {
+  const urlParams = new URLSearchParams(window.location.search);
+  const id = urlParams.get("id");
+  console.log(id);
+  editUser(id);
 }
 
+getQueryParam();
 
-populateCurrencies();
-
-
-async function populateCountry() {
-    try {
-        const jwtToken = localStorage.getItem('jwtToken');
-        if (!jwtToken) {
-            alert("Authorization token is missing.");
-            return;
-        }
-
-        const response = await fetch('https://hastin-container.com/staging/api/meta/country', {
-            method: 'GET',
-            headers: {
-                'Authorization': `BslogiKey ${jwtToken}`,
-                'Content-Type': 'application/json',
-            },
-        });
-
-        if (!response.ok) {
-            throw new Error('Failed to fetch countries');
-        }
-
-        const data = await response.json();
-        const countries = data?.data;
-
-        if (!Array.isArray(countries)) {
-            throw new Error('Country data is missing or invalid.');
-        }
-
-        const countryDropdown = document.getElementById('country');
-
-        countries.forEach(country => {
-            const option = document.createElement('option');
-            option.value = country.id;
-            option.textContent = country.name;
-            countryDropdown.appendChild(option);
-        });
-
-        countryDropdown.addEventListener('change', (event) => {
-            const selectedCountryId = event.target.value; 
-            populateCity(selectedCountryId); 
-        });
-    } catch (error) {
-        console.error('Error:', error.message);
+async function editUser(id) {
+  edit = true;
+  const jwtToken = localStorage.getItem("jwtToken");
+  const response = await fetch(
+    `https://hastin-container.com/staging/api/vendor/get/${id}`,
+    {
+      method: "GET",
+      headers: {
+        Authorization: `BslogiKey ${jwtToken}`,
+        "Content-Type": "application/json",
+      },
     }
+  );
+
+  if (response.ok) {
+    const user = await response.json();
+    const data = user.data;
+    await fetchCurrencies();
+    await countryGet();
+    parentId = data.id;
+    document.getElementById("vendorName").value = data.vendorName;
+    document.getElementById("vendorCode").value = data.vendorCode;
+    document.getElementById("vendorType").value = data.vendorType;
+    document.getElementById("add1").value = data.address;
+    document.getElementById("country").value = data.country;
+    countryIdGet = data.country;
+    document.getElementById("registrationNo").value = data.taxRegNo;
+    document.getElementById("comRegistrationNo").value = data.companyRegNo;
+    document.getElementById("currencyContainer").value = data.defaultCurrencyId;
+    await cityGet();
+    document.getElementById("add1").value = data.address1;
+    document.getElementById("add2").value = data.address2;
+    document.getElementById("city").value = data.cityId;
+    document.getElementById("zip").value = data.postalCode;
+    document.getElementById("bankaccountName").value = data.bankAcctName;
+    document.getElementById("bankaccountNumber").value = data.bankAccountNum;
+    document.getElementById("bankName").value = data.bankName;
+    document.getElementById("branch").value = data.bankBranchName;
+    document.getElementById("swiftCode").value = data.bankSwiftCode;
+
+    for (let i = 0; i < data.contactList.length; i++) {
+      document.getElementById("Name").value = data.contactList[i].name;
+      document.getElementById("Email").value = data.contactList[i].email;
+      document.getElementById("phoneNumber").value =
+        data.contactList[i].mobileNo;
+      document.getElementById("chooseDefault").value =
+        data.contactList[i].isDefault;
+      document.getElementById("rowId").value = data.contactList[i].id;
+    }
+
+    // let Name = document.getElementById('Name').value;
+    // let Email = document.getElementById('Email').value;
+    // let phoneNumber= document.getElementById('phoneNumber').value;
+    // let chooseDefault = document.getElementById('chooseDefault').value;
+    // editingUserId = id;
+  } else {
+    throw new Error("Failed to fetch user data");
+  }
 }
 
+async function saveButton(event) {
+  event.preventDefault();
 
-async function populateCity(countryId) {
-    try {
-        const jwtToken = localStorage.getItem('jwtToken');
-        if (!jwtToken) {
-            alert("Authorization token is missing.");
-            return;
+  let vendorName = document.getElementById("vendorName").value;
+  let vendorCode = document.getElementById("vendorCode").value;
+  let vendorType = document.getElementById("vendorType").value;
+  let registrationNo = document.getElementById("registrationNo").value;
+  let comRegistrationNo = document.getElementById("comRegistrationNo").value;
+  let currencyContainer = document.getElementById("currencyContainer").value;
+  let add1 = document.getElementById("add1").value;
+  let add2 = document.getElementById("add2").value;
+  let country = document.getElementById("country").value;
+  let city = document.getElementById("city").value;
+  let zip = document.getElementById("zip").value;
+  let Name = document.getElementById("Name").value;
+  let Email = document.getElementById("Email").value;
+  let phoneNumber = document.getElementById("phoneNumber").value;
+  let chooseDefault = document.getElementById("chooseDefault").value;
+  let rowId = document.getElementById("rowId").value;
+  let bankAcctName = document.getElementById("bankaccountName").value;
+  let bankName = document.getElementById("bankName").value;
+  let bankBranchName = document.getElementById("branch").value;
+  let bankAccountNum = document.getElementById("bankaccountNumber").value;
+  let bankSwiftCode = document.getElementById("swiftCode").value;
+
+  let nameError = document.getElementById("nameError");
+  let vendorCodeError = document.getElementById("vendorCodeError");
+  let typeError = document.getElementById("typeError");
+  let taxRegistrationNoError = document.getElementById(
+    "taxRegistrationNoError"
+  );
+  let comRegistrationNoError = document.getElementById(
+    "comRegistrationNoError"
+  );
+  let currencyError = document.getElementById("currencyError");
+  let addressError1 = document.getElementById("addressError1");
+  let addressError2 = document.getElementById("addressError2");
+  let countryError = document.getElementById("countryError");
+  let chooseCityError = document.getElementById("chooseCityError");
+  let zipError = document.getElementById("zipError");
+  let Nameerror = document.getElementById("Nameerror");
+  let Emailerror = document.getElementById("Emailerror");
+  let numberError = document.getElementById("numberError");
+  let defaultError = document.getElementById("defaultError");
+
+  let valid = true;
+
+  if (vendorName.trim() === "") {
+    nameError.textContent = "Required*";
+    nameError.style.color = "red";
+    nameError.style.fontSize = "13px";
+    nameError.style.paddingLeft = "15px";
+    valid = false;
+  } else {
+    nameError.textContent = "";
+  }
+  if (vendorCode.trim() === "") {
+    codeError.textContent = "Required*";
+    codeError.style.color = "red";
+    codeError.style.fontSize = "13px";
+    codeError.style.paddingLeft = "15px";
+    valid = false;
+  } else {
+    codeError.textContent = "";
+  }
+
+  if (vendorType.trim() === "") {
+    typeError.textContent = "Required*";
+    typeError.style.color = "red";
+    typeError.style.fontSize = "13px";
+    typeError.style.paddingLeft = "15px";
+    valid = false;
+  } else {
+    typeError.textContent = "";
+  }
+
+  if (registrationNo.trim() === "") {
+    taxRegistrationNoError.textContent = "Required*";
+    taxRegistrationNoError.style.color = "red";
+    taxRegistrationNoError.style.fontSize = "13px";
+    taxRegistrationNoError.style.paddingLeft = "15px";
+    valid = false;
+  } else {
+    taxRegistrationNoError.textContent = "";
+  }
+
+  if (comRegistrationNo.trim() === "") {
+    comRegistrationNoError.textContent = " Required*";
+    comRegistrationNoError.style.color = "red";
+    comRegistrationNoError.style.fontSize = "13px";
+    comRegistrationNoError.style.paddingLeft = "15px";
+    valid = false;
+  } else {
+    comRegistrationNoError.textContent = "";
+  }
+
+  if (currencyContainer.trim() === "") {
+    currencyError.textContent = " Required*";
+    currencyError.style.color = "red";
+    currencyError.style.fontSize = "13px";
+    currencyError.style.paddingLeft = "15px";
+    valid = false;
+  } else {
+    currencyError.textContent = "";
+  }
+
+  if (add1.trim() === "") {
+    addressError1.textContent = " Required*";
+    addressError1.style.color = "red";
+    addressError1.style.fontSize = "13px";
+    addressError1.style.paddingLeft = "15px";
+    valid = false;
+  } else {
+    addressError1.textContent = "";
+  }
+
+  //    if (add2.trim() === "") {
+  //     addressError2.textContent = " Required*";
+  //     addressError2.style.color = "red";
+  //     addressError2.style.fontSize = "13px";
+  //     addressError2.style.paddingLeft = "15px";
+  //      valid = false;
+  //  }
+  //  else {
+  //     addressError2.textContent = '';
+  //  }
+
+  if (country.trim() === "") {
+    countryError.textContent = " Required*";
+    countryError.style.color = "red";
+    countryError.style.fontSize = "13px";
+    countryError.style.paddingLeft = "15px";
+    valid = false;
+  } else {
+    countryError.textContent = "";
+  }
+
+  if (city.trim() === "") {
+    chooseCityError.textContent = " Required*";
+    chooseCityError.style.color = "red";
+    chooseCityError.style.fontSize = "13px";
+    chooseCityError.style.paddingLeft = "15px";
+    valid = false;
+  } else {
+    chooseCityError.textContent = "";
+  }
+  if (zip.trim() === "") {
+    zipError.textContent = " Required*";
+    zipError.style.color = "red";
+    zipError.style.fontSize = "13px";
+    zipError.style.paddingLeft = "15px";
+    valid = false;
+  } else {
+    zipError.textContent = "";
+  }
+
+  if (Name.trim() === "") {
+    Nameerror.textContent = " Required*";
+    Nameerror.style.color = "red";
+    Nameerror.style.fontSize = "13px";
+    Nameerror.style.paddingLeft = "15px";
+    valid = false;
+  } else {
+    Nameerror.textContent = "";
+  }
+
+  if (Email.trim() === "") {
+    Emailerror.textContent = " Required*";
+    Emailerror.style.color = "red";
+    Emailerror.style.fontSize = "13px";
+    Emailerror.style.paddingLeft = "15px";
+    valid = false;
+  } else {
+    Emailerror.textContent = "";
+  }
+  if (phoneNumber.trim() === "") {
+    numberError.textContent = " Required*";
+    numberError.style.color = "red";
+    numberError.style.fontSize = "13px";
+    numberError.style.paddingLeft = "15px";
+    valid = false;
+  } else {
+    numberError.textContent = "";
+  }
+
+//   if (chooseDefault.trim() === "") {
+//     defaultError.textContent = " Required*";
+//     defaultError.style.color = "red";
+//     defaultError.style.fontSize = "13px";
+//     defaultError.style.paddingLeft = "15px";
+//     valid = false;
+//   } else {
+//     defaultError.textContent = "";
+//   }
+
+  if (valid) {
+    const jwtToken = localStorage.getItem("jwtToken");
+
+    // try {
+    if (edit) {
+      const payload = {
+        id: parentId,
+        vendorName: vendorName,
+        vendorCode: vendorCode,
+        vendorType: vendorType,
+        taxRegNo: registrationNo,
+        companyRegNo: comRegistrationNo,
+        // currencyContainer:currencyContainer,
+        defaultCurrencyId: currencyContainer,
+        address1: add1,
+        address2: add2,
+        country: country,
+        postalCode: zip,
+        bankAcctName: bankAcctName,
+        bankName: bankName,
+        bankBranchName: bankBranchName,
+        bankAccountNum: bankAccountNum,
+        bankSwiftCode: bankSwiftCode,
+        cityId: city,
+        cityName: "",
+        notes: "",
+        createdBy: "adf8906a-cf9a-490f-a233-4df16fc86c58",
+        documentList: [],
+        contactList: [
+          {
+            name: Name,
+            email: Email,
+            mobileNo: phoneNumber,
+            isDefault: chooseDefault,
+            id: rowId ? rowId : "",
+          },
+        ],
+      };
+      const response = await fetch(
+        "https://hastin-container.com/staging/api/vendor/update",
+        {
+          method: "PUT",
+          headers: {
+            Authorization: `BslogiKey ${jwtToken}`,
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(payload),
         }
+      );
 
-        const response = await fetch('https://hastin-container.com/staging/api/countryCities/get', {
-            method: 'GET',
-            headers: {
-                'Authorization': `BslogiKey ${jwtToken}`,
-                'Content-Type': 'application/json',
-            },
-        });
+      if (response.ok) {
+        const result = await response.json();
+        console.log("Vendor Updated Successfully:", result);
+        alert("Vendor Updated Successfully!");
 
-        if (!response.ok) {
-            throw new Error('Failed to fetch cities');
+        //document.getElementById("formpage").reset();
+      } else {
+        throw new Error("Vendor creation failed!");
+      }
+    } else {
+      const payload = {
+        contactList: [
+          {
+            name: Name,
+            email: Email,
+            mobileNo: phoneNumber,
+            isDefault: chooseDefault,
+            id: rowId ? rowId : "",
+          },
+        ],
+        vendorName: vendorName,
+        vendorCode: vendorCode,
+        vendorType: vendorType,
+        taxRegNo: registrationNo,
+        companyRegNo: comRegistrationNo,
+        // currencyContainer:currencyContainer,
+        defaultCurrencyId: currencyContainer,
+        address1: add1,
+        address2: add2,
+        country: country,
+        postalCode: zip,
+        cityId: city,
+        createdBy: "adf8906a-cf9a-490f-a233-4df16fc86c58",
+        documentList: [],
+      };
+      const response = await fetch(
+        "https://hastin-container.com/staging/api/vendor/create",
+        {
+          method: "POST",
+          headers: {
+            Authorization: `BslogiKey ${jwtToken}`,
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(payload),
         }
+      );
 
-        const data = await response.json();
-        const cities = data?.data;
+      if (response.ok) {
+        const result = await response.json();
+        console.log("Vendor Created Successfully:", result);
+        alert("Vendor Created Successfully!");
 
-        const filteredCities = cities.filter(city => city.countryId === countryId);
-        populateCityDropdown(filteredCities); 
-    } catch (error) {
-        console.error('Error:', error.message);
+        document.getElementById("formpage").reset();
+      } else {
+        throw new Error("Vendor creation failed!");
+      }
     }
+    // } catch (error) {
+    //     console.error("Error occurred:", error);
+    //     alert("An error occurred while creating the vendor.");
+    // }
+  }
 }
 
-function populateCityDropdown(cities) {
-    const cityDropdown = document.getElementById('city');
+////currency api
 
-    cities.forEach(city => {
-        const option = document.createElement('option');
-        option.value = city.id; 
-        option.textContent = city.cityName; 
-        cityDropdown.appendChild(option);
+async function fetchCurrencies() {
+  const jwtToken = localStorage.getItem("jwtToken");
+
+  const response = await fetch(
+    "https://hastin-container.com/staging/api/meta/currencies",
+    {
+      method: "GET",
+      headers: {
+        Authorization: `BslogiKey ${jwtToken}`,
+        "Content-Type": "application/json",
+      },
+    }
+  );
+
+  if (!response.ok) {
+    console.log("yes");
+
+    const errorText = await response.data.text();
+    console.error(
+      `Failed to fetch currencies: ${response.status} - ${errorText}`
+    );
+    throw new Error(
+      `Failed to fetch currencies: ${response.status} - ${errorText}`
+    );
+  }
+
+  const data = await response.json();
+  populateCurrencyDropdown(data.data);
+
+  (error) => {
+    console.log(error);
+  };
+}
+
+async function countryGet() {
+  /////// Country Api
+  const jwtToken = localStorage.getItem("jwtToken");
+
+  const countryApi = await fetch(
+    "https://hastin-container.com/staging/api/meta/country",
+    {
+      method: "GET",
+      headers: {
+        Authorization: `BslogiKey ${jwtToken}`,
+        "Content-Type": "application/json",
+      },
+    }
+  );
+  if (!countryApi.ok) {
+    const errorText = await countryApi.data.text();
+    console.error(
+      `Failed to fetch currencies: ${countryApi.status} - ${errorText}`
+    );
+    throw new Error(
+      `Failed to fetch currencies: ${countryApi.status} - ${errorText}`
+    );
+  }
+
+  const contryData = await countryApi.json();
+  populateCountryDropdown(contryData.data);
+
+  (error) => {
+    console.log(error);
+  };
+}
+
+function populateCurrencyDropdown(data) {
+  const currencyContainer = document.getElementById("currencyContainer");
+  for (let obj of data) {
+    let id = obj.id;
+
+    currencyContainer.innerHTML += `<option value="${obj.id}"> ${obj.name}</option>`;
+  }
+}
+function populateCountryDropdown(data) {
+  const countryContainer = document.getElementById("country");
+  countryContainer.innerHTML = "";
+  console.log(data);
+
+  // Populate the dropdown with options
+
+  for (let obj of data) {
+    countryContainer.innerHTML += `<option value="${obj.id}"> ${obj.name}</option>`;
+  }
+    countryContainer.addEventListener("change", function () {
+      countryIdGet = countryContainer.value;
+      console.log(countryIdGet);
+
+      cityGet();
     });
+
 }
 
-populateCountry();
+async function cityGet() {
+  const jwtToken = localStorage.getItem("jwtToken");
+  const cityApi = await fetch(
+    "https://hastin-container.com/staging/api/countryCities/get",
+    {
+      method: "GET",
+      headers: {
+        Authorization: `BslogiKey ${jwtToken}`,
+        "Content-Type": "application/json",
+      },
+    }
+  );
 
+  if (!cityApi.ok) {
+    console.log("yes");
 
+    const errorText = await cityApi.data.text();
+    console.error(
+      `Failed to fetch currencies: ${cityApi.status} - ${errorText}`
+    );
+    throw new Error(
+      `Failed to fetch currencies: ${cityApi.status} - ${errorText}`
+    );
+  }
 
+  const cityData = await cityApi.json();
+  populateCityDropdown(cityData.data);
+
+  (error) => {
+    console.log(error);
+  };
+}
+
+function populateCityDropdown(data) {
+  const cityContainer = document.getElementById("city");
+  cityContainer.innerHTML = "";
+  const cityGet = data.filter((city) => city.countryId === countryIdGet);
+  console.log(cityGet);
+
+  for (let obj of cityGet) {
+    let id = obj.id;
+    cityContainer.innerHTML += `<option value="${obj.id}"> ${obj.cityName}</option>`;
+  }
+}
+
+fetchCurrencies();
 
 function updateSerialNumbers() {
-    const rows = document.querySelectorAll("#tableBody tr");
-    rows.forEach((row, index) => {
-        row.querySelector(".sno").textContent = index + 1; 
-    });
+  const rows = document.querySelectorAll("#table2 tr");
+  rows.forEach((row, index) => {
+    row.querySelector(".serialno").textContent = index + 1;
+  });
 }
 
 function addRow() {
-    const tableBody = document.getElementById("tableBody");
-    const newRow = document.createElement("tr");
+  const tableBody = document.getElementById("table2");
+  const newRow = document.createElement("tr");
 
-    newRow.innerHTML = `
-                <td class="sno" style="text-align: center;"></td>
+  newRow.innerHTML = `
+             <td class="serialno"></td>
                 <td>
                     <div class="form-floating ">
-                        <input type="text" class="form-control border-1 rounded-0 border-start-0 border-end-0 border-top-0 " style="box-shadow: none;" id="Name" placeholder=" Name" name=" Name">
+                        <input type="text" class="underInput form-control border-1 rounded-0 border-start-0 border-end-0 border-top-0 " style="box-shadow: none;" id="Name" placeholder=" Name" name=" Name">
                         <label for="name"> Name</label>
                         <div id="Nameerror"></div>
                     </div>
                 </td>
                 <td> 
                     <div class="form-floating ">
-                        <input type="text" class="form-control border-1 rounded-0 border-start-0 border-end-0 border-top-0 " style="box-shadow: none;" id="Email" placeholder=" Email" name=" Email">
+                        <input type="text" class="underInput form-control border-1 rounded-0 border-start-0 border-end-0 border-top-0 " style="box-shadow: none;" id="Email" placeholder=" Email" name=" Email">
                         <label for="Email"> Email</label>
                         <div id="Emailerror"></div>
                     </div>
                 </td>
                 <td>
                     <div class="form-floating ">
-                        <input type="text" class="form-control border-1 rounded-0 border-start-0 border-end-0 border-top-0 " style="box-shadow: none;" id="phoneno" placeholder=" phno" name=" phno">
+                        <input type="text" class="underInput form-control border-1 rounded-0 border-start-0 border-end-0 border-top-0 " style="box-shadow: none;" id="phoneno" placeholder=" phno" name=" phno">
                         <label for="phno">Phone No</label>
                         <div id="numError"></div>
                     </div>
                 </td>
                
                 <td>
-                    <select class="form-select border-1 rounded-0 border-start-0 border-end-0 border-top-0 border-bottom-0"style=""id="default" placeholder="default"  name="default">
-                        <option value="" selected disabled>Is Default</option>
+                    <select class=" form-select border-1 rounded-0 border-start-0 border-end-0 border-top-0 border-bottom-0"style=""id="default" placeholder="default"  name="default">
+                        <option value="" selected disabled class="mt-4">Is Default</option>
                         <option value="">Yes</option>
                         <option value="">No</option>
                     </select>
@@ -592,25 +1374,19 @@ function addRow() {
                     <div id="defaultError"></div>
                 </td>
                 <td>
-                    <i class='bx bxs-trash text-danger fs-3 delete-row'  id="delete" ></i>
-                    </td>
-            
-    `;
-    
+                <i class='bx bxs-trash text-danger fs-3 ms-3 mt-2 delete-row' id="delete" ></i>
+            </td>
+  `;
 
-    tableBody.appendChild(newRow);
-    updateSerialNumbers(); 
+  tableBody.appendChild(newRow);
+  updateSerialNumbers();
 }
 function removeRow(event) {
-    if (event.target.classList.contains("delete-row")) {
-        const row = event.target.closest("tr");
-        row.remove(); 
-        updateSerialNumbers();
-    }
+  if (event.target.classList.contains("delete-row")) {
+    const row = event.target.closest("tr");
+    row.remove();
+    updateSerialNumbers();
+  }
 }
-document.getElementById("addRowButton").addEventListener("click", addRow); 
-document.getElementById("tableBody").addEventListener("click", removeRow);
-
-
-
-
+document.getElementById("addRowButton").addEventListener("click", addRow);
+document.getElementById("table2").addEventListener("click", removeRow);

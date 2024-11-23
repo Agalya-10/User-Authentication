@@ -81,7 +81,7 @@ async function vendortable() {
     }
 }
 function displayTable(users) {
-    const tableBody = document.getElementById('table2');
+    const tableBody = document.getElementById('table');
     tableBody.innerHTML = ''; 
     users.forEach((user,index) => {
         const row = `<tr>
@@ -107,12 +107,14 @@ function displayTable(users) {
             const userId = event.target.getAttribute('data-id');
             console.log(userId)
             window.location.href = `create.html?id=${userId}`;
-            // editUser(userId);
+            editUser(userId);
         });
     });
 }
 
-
+function editUser(id){
+    window.location.href = `create.html?id=${id}`;
+}
 
 
 fetchUserData();
