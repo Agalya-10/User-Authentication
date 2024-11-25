@@ -32,7 +32,6 @@ async function fetchUserData() {
 
     } catch (error) {
         console.error("Error:", error);
-        alert("There was an error fetching the user profile.");
     }
 }
 
@@ -77,7 +76,6 @@ async function vendortable() {
 
     } catch (error) {
         console.error("Error:", error);
-        alert("There was an error fetching the user profile.");
     }
 }
 function displayTable(users) {
@@ -99,6 +97,7 @@ function displayTable(users) {
     </td>
         </tr>`;
         tableBody.innerHTML += row;
+        
     });
     const editIcons = tableBody.querySelectorAll('.bxs-edit-alt');
     editIcons.forEach(icon => {

@@ -84,11 +84,14 @@
     font-family:Georgia, 'Times New Roman', Times, serif;
     display: none;
     background-color:rgba(0,0,0,0.5);
-    padding: 3rem 25rem;
-    /* width: 50%; */
 }
+  
 .modal-content{
     text-align: center;
+    width: 45% !important;
+    margin-left: 27%;
+
+
 }
 .head{
     color: hsl(340, 97%, 45%);
@@ -126,7 +129,8 @@
     font-weight: bold;
     color: hsl(340, 97%, 45%);
     cursor: pointer;
-    margin-left: 31rem;
+    text-align: end;
+    /* margin-left: 31rem; */
 }
 .parent{
     display: flex;
@@ -192,4 +196,75 @@ option{
     width: 93%;
     font-family:Georgia, 'Times New Roman', Times, serif;
     display: inline-block;
+}
+
+
+@media only screen and (min-width:767px) and (max-width:1022px){
+   
+.modal-content{
+    margin-left: 27% !important;
+
+}
+
+}
+
+
+
+@media only screen and (min-width:424px) and (max-width:766px){
+ 
+#addRowButton{
+    margin-left: 10px !important;
+}
+
+.modal-content{
+    width: 65% !important;
+    margin-left: 72px !important;
+}
+/* .parent{
+   margin-left: 53rem !important;
+} */
+}
+
+
+@media only screen and (min-width:374px) and (max-width:423px){
+    
+    #addRowButton{
+        margin-left: 10px !important;
+    }
+    #creatTable{
+        width: 43% !important;
+        margin-right: 40px !important;
+    }
+   
+    .modal-content{
+        margin-left: 11%;
+        width: 75% !important;
+    }
+    .parent-container1{
+        text-align:start;
+    }
+    .parent{
+        margin-left: 23rem !important;
+     }
+    
+}
+
+
+@media only screen and (min-width:319px) and (max-width:374px){
+   
+    #creatTable{
+        width: 136.2% !important;
+    }
+    #addRowButton{
+        margin-left: 10px !important;
+    }
+    
+    .modal-content{
+        width: 65% !important;
+        margin-left: 30px !important;
+    }
+    .parent{
+        margin-left: 15rem !important;
+     }
+    
 }

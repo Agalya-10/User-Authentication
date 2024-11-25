@@ -12,45 +12,43 @@
 </head>
 <body>
     <h2 class="head1 pt-3 ps-5">Vendor Creation</h2>
-    <div class="container-fluid d-flex">
+    <div class="container-fluid d-lg-flex d-md-block ">
         <form action="" id="formpage" class="shadow">  
             <div class="form1">
                 <h5 class="subhead">Basic Information</h5>
-            <div class="form-floating ">
-                <input type="text" class="form-control border-1 rounded-0 border-start-0 border-end-0 border-top-0 " style="box-shadow: none;" id="vendorName" placeholder="vendor name" name="vendorname">
+            <div class="form-floating">
+                <input type="text" class="form-control border-1 rounded-0 border-start-0 border-end-0 border-top-0 " style="box-shadow: none;" id="vendorName" placeholder="vendor name" name="vendorname" autocomplete="off">
                 <label for="vendorName"> Vendor Name*</label>
                 <div id="nameError"></div>
             </div>
             <div class="form-floating ">
-                <input type="text" class="form-control border-1 rounded-0 border-start-0 border-end-0 border-top-0" style="box-shadow: none;" id="vendorCode" placeholder="vendor code" name="vendorcode">
+                <input type="text" class="form-control border-1 rounded-0 border-start-0 border-end-0 border-top-0" style="box-shadow: none;" id="vendorCode" placeholder="vendor code" name="vendorcode"autocomplete="off">
                 <label for="vendorCode"> Vendor Code*</label>
                 <div id="codeError"></div>
             </div>
             <div class="form-floating ">
-                <!-- <input type="text" class="form-control border-1 rounded-0 border-start-0 border-end-0 border-top-0" style="box-shadow: none;" id="vendorType" placeholder="vendor type" name="vendortype"> -->
 
-                <select class="form-select border-1 rounded-0 border-start-0 border-end-0 border-top-0"style="box-shadow: none;"id="vendorType" placeholder="vendor type"  name="vendortype">
+                <select class="form-select border-1 rounded-0 border-start-0 border-end-0 border-top-0"style="box-shadow: none;"id="vendorType" placeholder="vendor type"  name="vendortype" autocomplete="off">
             <option value="" selected disabled></option>
-            <option value="company">Company</option>
+            <option value="Company">Company</option>
             <option value="Individual">Individual</option>
         </select>
                 <label for="vendorType"  style="font-size: 15px; color: #212529;"> Vendor Type*</label>
                 <div id="typeError"></div>
             </div>
             <div class="form-floating ">
-                <input type="text" class="form-control border-1 rounded-0 border-start-0 border-end-0 border-top-0" style="box-shadow: none;" id="registrationNo" placeholder="Tax Registration No" name="RegistrationNo">
+                <input type="text" class="form-control border-1 rounded-0 border-start-0 border-end-0 border-top-0" style="box-shadow: none;" id="registrationNo" placeholder="Tax Registration No" name="RegistrationNo" autocomplete="off">
                 <label for=" registrationNo"> Tax Registration No*</label>
                 <div id="taxRegistrationNoError"></div>
 
             </div>
             <div class="form-floating ">
-                <input type="text" class="form-control border-1 rounded-0 border-start-0 border-end-0 border-top-0" style="box-shadow: none;" id="comRegistrationNo" placeholder=" Company Registration No" name="comRegistrationNo">
+                <input type="text" class="form-control border-1 rounded-0 border-start-0 border-end-0 border-top-0" style="box-shadow: none;" id="comRegistrationNo" placeholder=" Company Registration No" name="comRegistrationNo" autocomplete="off">
                 <label for=" registrationNo"> Company Registration No*</label>
                 <div id="comRegistrationNoError"></div>
             </div>
             <div class="form-floating ">
-                <select class="form-control border-1 rounded-0 border-start-0 border-end-0 border-top-0" style="box-shadow: none;" id="currencyContainer" placeholder="Choose Currency" name="chooseCurrency">
-                <!-- <select id="currencies-dropdown"> -->
+                <select class="form-control border-1 rounded-0 border-start-0 border-end-0 border-top-0" style="box-shadow: none;" id="currencyContainer" placeholder="Choose Currency" name="chooseCurrency" autocomplete="off">
                     <option value="" disabled selected></option>
                 </select>
                 <label for=" currency" style="font-size: 15px; color: #212529;"> Currency*</label>
@@ -63,26 +61,24 @@
             <div class="form1">
                 <h5 class="subhead">Address Details</h5>
             <div class="form-floating ">
-                <input type="text" class="form-control border-1 rounded-0 border-start-0 border-end-0 border-top-0 disabled selected" style="box-shadow: none;" id="add1" placeholder="Address 1" name="Address 1">
+                <input type="text" class="form-control border-1 rounded-0 border-start-0 border-end-0 border-top-0 " style="box-shadow: none;" id="add1" placeholder="Address 1" name="Address 1" autocomplete="off">
                 <label for="address1"> Address 1*</label>
                 <div id="addressError1"></div>
             </div>
             <div class="form-floating ">
-               <input type="text" class="form-control border-1 rounded-0 border-start-0 border-end-0 border-top-0 disabled selected" style="box-shadow: none;" id="add2" placeholder="Address 2" name="Address 2">
+               <input type="text" class="form-control border-1 rounded-0 border-start-0 border-end-0 border-top-0 " style="box-shadow: none;" id="add2" placeholder="Address 2" name="Address 2" autocomplete="off">
                 <label for="address2"> Address 2</label>
                 <div id="addressError2"></div>
             </div>
             <div class="form-floating ">
-                <select class="form-control border-1 rounded-0 border-start-0 border-end-0 border-top-0" style="box-shadow: none;" id="country" placeholder="Choose Country" name="chooseCountry">
-                <!-- <select id="country-dropdown"> -->
+                <select class="form-control border-1 rounded-0 border-start-0 border-end-0 border-top-0" style="box-shadow: none;" id="country" placeholder="Choose Country" name="chooseCountry" autocomplete="off">
                     <option value="" disabled selected></option>
                 </select>
                 <label for="country"  style="font-size: 15px; color: #212529;">Country*</label>
                 <div id="countryError"></div>
             </div>
             <div class="form-floating ">
-                <select class="form-control border-1 rounded-0 border-start-0 border-end-0 border-top-0" style="box-shadow: none;" id="city" placeholder="Choose" name="choose City">
-                <!-- <select id="city-dropdown"> -->
+                <select class="form-control border-1 rounded-0 border-start-0 border-end-0 border-top-0" style="box-shadow: none;" id="city" placeholder="Choose" name="choose City" autocomplete="off">
                     <option value="" disabled selected></option>
                 </select>
                 <label for=" city"  style="font-size: 15px; color: #212529;"> City*</label>
@@ -90,7 +86,7 @@
 
             </div>
             <div class="form-floating ">
-                <input type="text" class="form-control border-1 rounded-0 border-start-0 border-end-0 border-top-0 disabled selected" style="box-shadow: none;" id="zip" placeholder=" Zip Code" name="Zip Code">
+                <input type="text" class="form-control border-1 rounded-0 border-start-0 border-end-0 border-top-0 " style="box-shadow: none;" id="zip" placeholder=" Zip Code" name="Zip Code" autocomplete="off">
                 <label for=" zipCode">Zip Code*</label>
                 <div id="zipError"></div>
             </div>
@@ -101,30 +97,25 @@
             <div class="form1">
                 <h5 class="subhead">Bank Details</h5>
             <div class="form-floating ">
-                <input type="text" class="form-control border-1 rounded-0 border-start-0 border-end-0 border-top-0" style="box-shadow: none;" id="bankaccountName" placeholder="Bank Account Name" name="accname">
+                <input type="text" class="form-control border-1 rounded-0 border-start-0 border-end-0 border-top-0" style="box-shadow: none;" id="bankaccountName" placeholder="Bank Account Name" name="accname" autocomplete="off">
                 <label for="accName">Bank Account Name</label>
-                <!-- <div id="accnameError"></div> -->
             </div>
             <div class="form-floating ">
-                <input type="text" class="form-control border-1 rounded-0 border-start-0 border-end-0 border-top-0" style="box-shadow: none;" id="bankaccountNumber" placeholder="Bank Account No" name="Bank account No">
+                <input type="text" class="form-control border-1 rounded-0 border-start-0 border-end-0 border-top-0" style="box-shadow: none;" id="bankaccountNumber" placeholder="Bank Account No" name="Bank account No" autocomplete="off">
                 <label for="accNo"> Bank Account No</label>
-                <!-- <div id="accnoError"></div> -->
             </div>
             <div class="form-floating ">
-                <input type="text" class="form-control border-1 rounded-0 border-start-0 border-end-0 border-top-0" style="box-shadow: none;" id="bankName" placeholder="Bank Name" name="Bank Name">
+                <input type="text" class="form-control border-1 rounded-0 border-start-0 border-end-0 border-top-0" style="box-shadow: none;" id="bankName" placeholder="Bank Name" name="Bank Name" autocomplete="off">
                 <label for="BankName"> Bank Name</label>
-                <!-- <div id="banknameError"></div> -->
             </div>
             <div class="form-floating ">
-                <input type="text" class="form-control border-1 rounded-0 border-start-0 border-end-0 border-top-0" style="box-shadow: none;" id="branch" placeholder=" Branch" name="Branch">
+                <input type="text" class="form-control border-1 rounded-0 border-start-0 border-end-0 border-top-0" style="box-shadow: none;" id="branch" placeholder=" Branch" name="Branch" autocomplete="off">
                 <label for="branch"> Branch</label>
-                <!-- <div id="branchError"></div> -->
 
             </div>
             <div class="form-floating ">
-                <input type="text" class="form-control border-1 rounded-0 border-start-0 border-end-0 border-top-0" style="box-shadow: none;" id="swiftCode" placeholder=" Swift Code" name="swift code">
+                <input type="text" class="form-control border-1 rounded-0 border-start-0 border-end-0 border-top-0" style="box-shadow: none;" id="swiftCode" placeholder=" Swift Code" name="swift code" autocomplete="off">
                 <label for=" swiftCode"> Swift Code</label>
-                <!-- <div id="swiftcodeError"></div> -->
             </div>
             </div>
         </form>
@@ -144,37 +135,37 @@
             </thead>
            <tbody id="table2">
             <tr>
-                <td class="sno" style="text-align: center;" id="rowId"></td>
+                <td class="serialno" style="text-align: center;" id="rowId"></td>
                 <td>
                     <div class="form-floating ">
                         <input type="text" class="form-control border-1 rounded-0 border-start-0 border-end-0 border-top-0" autocomplete="off" style="box-shadow: none;" id="Name" placeholder=" Name" name="Name">
-                        <label for="name"> Name</label>
+                        <label for="name" > Name</label>
                         <div id="Nameerror"></div>
                     </div>
                 </td>
                 <td> 
                     <div class="form-floating ">
                         <input type="text" class="form-control border-1 rounded-0 border-start-0 border-end-0 border-top-0" autocomplete="off" style="box-shadow: none;" id="Email" placeholder=" Email" name="Email">
-                        <label for="Email"> Email</label>
+                        <label for="Email" > Email</label>
                         <div id="Emailerror"></div>
                     </div>
                 </td>
                 <td>
                     <div class="form-floating ">
                         <input type="text" class="form-control border-1 rounded-0 border-start-0 border-end-0 border-top-0" autocomplete="off" style="box-shadow: none;" id="phoneNumber" placeholder=" phno" name="phno">
-                        <label for="phno">Phone No</label>
+                        <label for="phno" >Ph No</label>
                         <div id="numberError"></div>
                     </div>
                 </td>
                
                 <td>
                     <select class="form-select border-1 rounded-0 border-start-0 border-end-0 border-top-0 border-bottom-0"style=""id="chooseDefault" placeholder="default"  name="default">
-                        <option value="" selected disabled>Is Default</option>
-                        <option value="">Yes</option>
-                        <option value="">No</option>
+                        <option value="" selected disabled >Is Default</option>
+                        <option value="true">Yes</option>
+                        <option value="false">No</option>
                     </select>
-                    <label for="default"></label>
-                    <!-- <div id="defaultError"></div> -->
+                    <label for="default" > </label>
+                    <div id="defaultError"></div>
                 </td>
                 <td>
                     <i class='bx bxs-trash text-danger fs-3 '></i></td>
