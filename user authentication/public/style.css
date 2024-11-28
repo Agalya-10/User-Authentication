@@ -56,7 +56,7 @@
 }
 .submit:hover{
     background-color:hsl(340, 100%, 37%); 
-    color: white;
+    color: white;;
 }
 .password1{
     text-decoration: none;
@@ -78,7 +78,6 @@
     top: 40%;
     transform: translateY(-50%);
     color:hsl(340, 97%, 45%); 
-    cursor: pointer;
     
 }
 .modal {
@@ -176,6 +175,10 @@ option{
 .subhead{
     color:hsl(340, 97%, 45%); 
 }
+.parent-container{
+    text-align: center;
+}
+
 .savebutton{
     border: none;
     padding: 5px 10px;
@@ -183,6 +186,7 @@ option{
     font-weight: 600;
     border-radius: 5px;
     background-color:hsl(340, 97%, 45%); 
+    display: inline-block;
     
 }
 .parent-container1{
@@ -193,12 +197,19 @@ option{
     font-family:Georgia, 'Times New Roman', Times, serif;
     display: inline-block;
 }
+
+
 @media only screen and (min-width:767px) and (max-width:1022px){
    
 .modal-content{
     margin-left: 27% !important;
+
 }
+
 }
+
+
+
 @media only screen and (min-width:424px) and (max-width:766px){
  
 #addRowButton{
@@ -209,8 +220,8 @@ option{
     width: 65% !important;
     margin-left: 72px !important;
 }
-/* .usericon{
-   margin-right: -5.5rem !important;
+/* .parent{
+   margin-left: 53rem !important;
 } */
 }
 
@@ -230,12 +241,12 @@ option{
         width: 75% !important;
     }
     .parent-container1{
-        text-align:start !important;
+        text-align:start;
     }
-     /* .bx-usercon{
-        margin-left: 10rem !important;
+    .parent{
+        margin-left: 23rem !important;
      }
-     */
+    
 }
 
 
