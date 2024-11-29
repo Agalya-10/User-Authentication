@@ -115,7 +115,13 @@ function editUser(id){
     window.location.href = `create.html?id=${id}`;
 }
 
-
 fetchUserData();
 vendortable();
+
+
+function logoutClick() {
+    localStorage.removeItem("jwtToken");
+    alert("Logged out successfully!");
+    window.location = "index.html";
+}
 

@@ -10,16 +10,33 @@
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 </head>
 <body>
-    <div id="table1" class="mb-5 ">
-        <table class="table table-bordered table-hover" style="text-align: center;">
-            <div class="parent">
-            <div class="d-flex mt-2 usericon">
-                <i class='bx bx-user fs-2'></i>
-                <h4 id="userName"class="mt-1"></h4>
+  
+        <div class="parent bg-light pe-5 ps-5">
+            <img class="ms-5 mt-1" src="images/logoHeader.png" width="110" height="60">
+            <div class=" mt-2 usericon dropdown">
+                <i class='bx bxs-user-detail fs-2 me-5 ' id="userMenu" data-bs-toggle="dropdown" aria-expanded="false" style="cursor: pointer;"></i>              
+              <ul class="dropdown-menu dropdown-menu-end me-5 " aria-labelledby="userMenu">
+                <li class="d-flex ms-3">
+                    <i class="bx bx-user fs-4" style="color:hsl(340, 97%, 45%);"></i>
+                    <h4 id="userName" style="color:hsl(340, 97%, 45%);"></h4>
+                </li>
+                <!-- <li>
+                    <button class="dropdown-item" onclick="logoutClick()">
+                    <i class='bx bx-log-in-circle fs-4'></i> Login
+                    </button>
+                  </li> -->
+                <li>
+                  <button class="dropdown-item" onclick="logoutClick()">
+                    <i class="bx bx-log-out-circle fs-4" ></i> Logout
+                  </button>
+                </li>
+              </ul>
             </div>
-        </div>
-            <div class="user d-flex mb-3" style="justify-content: space-between;">
-            <h3 class=" fw-bold heading ms-3">Vendor Details</h3>
+          </div>
+          <div id="table1 " class="mb-5 container ">
+            <table class="table table-bordered table-hover" style="text-align: center;">
+            <div class="user d-flex mb-3 mt-3" style="justify-content: space-between;">
+            <h3 class=" fw-bold heading ms-3" >Vendor Details</h3>
             <button class="addbutton me-2" onclick="addButton()">Add vendor</button>
            
         </div>

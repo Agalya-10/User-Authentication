@@ -135,9 +135,9 @@
 }
 .parent{
     display: flex;
-    justify-content: end;
+    justify-content: space-between;
 }
-#table1{
+.container{
     font-family:Georgia, 'Times New Roman', Times, serif;
    
 }
@@ -189,10 +189,17 @@ option{
     text-align: center;
 }
 #creatTable{
-    width: 93%;
+    width: 100%;
     font-family:Georgia, 'Times New Roman', Times, serif;
     display: inline-block;
 }
+.bx-check{
+    cursor: pointer;
+}
+.bxs-trash{
+    cursor: pointer;
+}
+
 @media only screen and (min-width:767px) and (max-width:1022px){
    
 .modal-content{
