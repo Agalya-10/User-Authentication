@@ -545,21 +545,21 @@ function addRow() {
       <div class="form-floating">
         <input type="text" class="underInput form-control rounded-0 border-start-0 border-end-0 border-top-0 " id="Name${i}" placeholder="Name" name="Name"  autocomplete="off" style="box-shadow: none;">
         <label for="Name${i}">Name</label>
-        <div id="Nameerror"></div>
+        <div id="Nameerror${i}"></div>
       </div>
     </td>
     <td>
       <div class="form-floating">
         <input type="text" class="underInput form-control rounded-0 border-start-0 border-end-0 border-top-0 " id="Email${i}" placeholder="Email" name="Email"  autocomplete="off" style="box-shadow: none;">
         <label for="Email${i}">Email</label>
-        <div id="Emailerror"></div>
+        <div id="Emailerror${i}"></div>
       </div>
     </td>
     <td>
       <div class="form-floating">
         <input type="text" class="underInput form-control rounded-0 border-start-0 border-end-0 border-top-0 " id="phoneNumber${i}" placeholder="Phone No" name="phoneNumber"  autocomplete="off" style="box-shadow: none;">
         <label for="phoneNumber${i}">Phone No</label>
-        <div id="numError"></div>
+        <div id="numError${i}"></div>
       </div>
     </td>
     <td>
@@ -569,6 +569,8 @@ function addRow() {
         <option value="false">No</option>
       </select>
       <label for="default"></label>
+      <div id="defaultError${i}"></div>
+
 
     </td>
     <td>

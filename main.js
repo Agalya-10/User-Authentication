@@ -95,15 +95,15 @@ function closeOtpModal() {
     clearInterval(timerInterval);
 }
 
-// const otpInput = document.getElementById("otpInput");
-// otpInput.addEventListener("keydown", function (e) {
-//   if (
-//     !["Tab"].includes(e.key) && 
-//     (e.key !== "Unidentified") 
-//   ) {
-//     e.preventDefault();
-//   }
-// });
+const otpInput = document.getElementById("otpInput");
+otpInput.addEventListener("keydown", function (e) {
+  if (
+    !["Tab"].includes(e.key) && 
+    (e.key !== "Unidentified") 
+  ) {
+    e.preventDefault();
+  }
+});
 
 function openOtpModal() {
   
