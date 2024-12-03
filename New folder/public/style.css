@@ -56,7 +56,7 @@
 }
 .submit:hover{
     background-color:hsl(340, 100%, 37%); 
-    color: white;;
+    color: white;
 }
 .password1{
     text-decoration: none;
@@ -78,6 +78,7 @@
     top: 40%;
     transform: translateY(-50%);
     color:hsl(340, 97%, 45%); 
+    cursor: pointer;
     
 }
 .modal {
@@ -134,9 +135,9 @@
 }
 .parent{
     display: flex;
-    justify-content: end;
+    justify-content: space-between;
 }
-#table1{
+.container{
     font-family:Georgia, 'Times New Roman', Times, serif;
    
 }
@@ -175,10 +176,6 @@ option{
 .subhead{
     color:hsl(340, 97%, 45%); 
 }
-.parent-container{
-    text-align: center;
-}
-
 .savebutton{
     border: none;
     padding: 5px 10px;
@@ -186,30 +183,29 @@ option{
     font-weight: 600;
     border-radius: 5px;
     background-color:hsl(340, 97%, 45%); 
-    display: inline-block;
     
 }
 .parent-container1{
     text-align: center;
 }
 #creatTable{
-    width: 93%;
+    width: 100%;
     font-family:Georgia, 'Times New Roman', Times, serif;
     display: inline-block;
 }
-
+.bx-check{
+    cursor: pointer;
+}
+.bxs-trash{
+    cursor: pointer;
+}
 
 @media only screen and (min-width:767px) and (max-width:1022px){
    
 .modal-content{
     margin-left: 27% !important;
-
 }
-
 }
-
-
-
 @media only screen and (min-width:424px) and (max-width:766px){
  
 #addRowButton{
@@ -220,8 +216,8 @@ option{
     width: 65% !important;
     margin-left: 72px !important;
 }
-/* .parent{
-   margin-left: 53rem !important;
+/* .usericon{
+   margin-right: -5.5rem !important;
 } */
 }
 
@@ -241,12 +237,12 @@ option{
         width: 75% !important;
     }
     .parent-container1{
-        text-align:start;
+        text-align:start !important;
     }
-    .parent{
-        margin-left: 23rem !important;
+     /* .bx-usercon{
+        margin-left: 10rem !important;
      }
-    
+     */
 }
 
 
@@ -263,8 +259,8 @@ option{
         width: 65% !important;
         margin-left: 30px !important;
     }
-    .parent{
+    /* .parent{
         margin-left: 15rem !important;
      }
-    
+     */
 }

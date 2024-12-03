@@ -91,10 +91,10 @@ async function saveButton(event) {
   let country = document.getElementById("country").value;
   let city = document.getElementById("city").value;
   let zip = document.getElementById("zip").value;
-  let Name = document.getElementById("Name1").value;
-  let Email = document.getElementById("Email1").value;
-  let phoneNumber = document.getElementById("phoneNumber1").value;
-  let chooseDefault = document.getElementById("chooseDefault1").value;
+  let Name1 = document.getElementById("Name1").value;
+  let Email1 = document.getElementById("Email1").value;
+  let phoneNumber1 = document.getElementById("phoneNumber1").value;
+  let chooseDefault1 = document.getElementById("chooseDefault1").value;
   let rowId = document.getElementById("rowId").value;
   let bankAcctName = document.getElementById("bankaccountName").value;
   let bankName = document.getElementById("bankName").value;
@@ -113,10 +113,10 @@ async function saveButton(event) {
   let countryError = document.getElementById("countryError");
   let chooseCityError = document.getElementById("chooseCityError");
   let zipError = document.getElementById("zipError");
-  let Nameerror = document.getElementById("Nameerror");
-  let Emailerror = document.getElementById("Emailerror");
-  let numberError = document.getElementById("numberError");
-  let defaultError = document.getElementById("defaultError");
+  let Nameerror1 = document.getElementById("Nameerror1");
+  let Emailerror1 = document.getElementById("Emailerror1");
+  let numberError1 = document.getElementById("numberError1");
+  let defaultError1 = document.getElementById("defaultError1");
 
   let valid = true;
 
@@ -219,55 +219,80 @@ async function saveButton(event) {
     zipError.textContent = "";
   }
 
-  if (Name.trim() === "") {
-    Nameerror.textContent = " Required*";
-    Nameerror.style.color = "red";
-    Nameerror.style.fontSize = "13px";
-    Nameerror.style.paddingLeft = "15px";
+  if (Name1.trim() === "") {
+    Nameerror1.textContent = " Required*";
+    Nameerror1.style.color = "red";
+    Nameerror1.style.fontSize = "13px";
+    Nameerror1.style.paddingLeft = "15px";
     valid = false;
   } else {
-    Nameerror.textContent = "";
+    Nameerror1.textContent = "";
   }
 
-  if (Email.trim() === "") {
-    Emailerror.textContent = " Required*";
-    Emailerror.style.color = "red";
-    Emailerror.style.fontSize = "13px";
-    Emailerror.style.paddingLeft = "15px";
+  if (Email1.trim() === "") {
+    Emailerror1.textContent = " Required*";
+    Emailerror1.style.color = "red";
+    Emailerror1.style.fontSize = "13px";
+    Emailerror1.style.paddingLeft = "15px";
     valid = false;
   } else {
-    Emailerror.textContent = "";
+    Emailerror1.textContent = "";
   }
-  if (phoneNumber.trim() === "") {
-    numberError.textContent = " Required*";
-    numberError.style.color = "red";
-    numberError.style.fontSize = "13px";
-    numberError.style.paddingLeft = "15px";
+  if (phoneNumber1.trim() === "") {
+    numberError1.textContent = " Required*";
+    numberError1.style.color = "red";
+    numberError1.style.fontSize = "13px";
+    numberError1.style.paddingLeft = "15px";
     valid = false;
   }
-  else if (phoneNumber.length < 10) {
-    passwordError.textContent = "Invalid mobile number";
-    passwordError.style.color = "red";
-    passwordError.style.fontSize = "13px";
-    passwordError.style.paddingLeft = "15px";
+  else if (phoneNumber1.length < 10) {
+    passwordError1.textContent = "Invalid mobile number";
+    passwordError1.style.color = "red";
+    passwordError1.style.fontSize = "13px";
+    passwordError1.style.paddingLeft = "15px";
     valid = false;
 } 
   else {
-    numberError.textContent = "";
+    numberError1.textContent = "";
   }
 
-  if (chooseDefault.trim() === "") {
-    defaultError.textContent = " Required*";
-    defaultError.style.color = "red";
-    defaultError.style.fontSize = "13px";
-    defaultError.style.paddingLeft = "15px";
+  if (chooseDefault1.trim() === "") {
+    defaultError1.textContent = " Required*";
+    defaultError1.style.color = "red";
+    defaultError1.style.fontSize = "13px";
+    defaultError1.style.paddingLeft = "15px";
     valid = false;
   } else {
-    defaultError.textContent = "";
+    defaultError1.textContent = "";
   }
+const contactList = [];
+  const rows = document.querySelectorAll('#table2 tr');
 
+  let allRowsValid = true; 
 
-  if (valid) {
+  rows.forEach(row => {
+    const Name = document.getElementById(`Name${i}`).value;
+    const Email = document.getElementById(`Email${i}`).value;
+    const phoneNumber = document.getElementById(`phoneNumber${i}`).value;
+    const chooseDefault = document.getElementById(`chooseDefault${i}`).value;
+
+   
+    const isRowValid = validateRow(i);
+    if (!isRowValid) {
+      allRowsValid = false;
+    }
+
+    if (isRowValid) {
+      contactList.push({
+        name: Name,
+        email: Email,
+        mobileNo: phoneNumber,
+        isDefault: chooseDefault,
+      });
+    }
+  });
+
+  if (valid && allRowsValid) {
     const jwtToken = localStorage.getItem("jwtToken");
 
     // try
@@ -297,10 +322,10 @@ async function saveButton(event) {
         documentList: [],
         contactList: [
           {
-            name: Name,
-            email: Email,
-            mobileNo: phoneNumber,
-            isDefault: chooseDefault,
+            name: Name1,
+            email: Email1,
+            mobileNo: phoneNumber1,
+            isDefault: chooseDefault1,
             id: rowId ? rowId : "",
           },
         ],
@@ -332,10 +357,10 @@ async function saveButton(event) {
       const payload = {
         contactList: [
           {
-            name: Name,
-            email: Email,
-            mobileNo: phoneNumber,
-            isDefault: chooseDefault,
+            name: Name1,
+            email: Email1,
+            mobileNo: phoneNumber1,
+            isDefault: chooseDefault1,
             id: rowId ? rowId : "",
           },
         ],
@@ -536,69 +561,70 @@ let i = 1;
 function addRow() {
   i++; 
 
-  const tableBody = document.getElementById("table2");
-  const newRow = document.createElement("tr");
 
-  newRow.innerHTML = `
-    <td class="serialno"></td>
-    <td>
-      <div class="form-floating">
-        <input type="text" class="underInput form-control rounded-0 border-start-0 border-end-0 border-top-0 " id="Name${i}" placeholder="Name" name="Name"  autocomplete="off" style="box-shadow: none;">
-        <label for="Name${i}">Name</label>
-        <div id="Nameerror${i}"></div>
-      </div>
-    </td>
-    <td>
-      <div class="form-floating">
-        <input type="text" class="underInput form-control rounded-0 border-start-0 border-end-0 border-top-0 " id="Email${i}" placeholder="Email" name="Email"  autocomplete="off" style="box-shadow: none;">
-        <label for="Email${i}">Email</label>
-        <div id="Emailerror${i}"></div>
-      </div>
-    </td>
-    <td>
-      <div class="form-floating">
-        <input type="text" class="underInput form-control rounded-0 border-start-0 border-end-0 border-top-0 " id="phoneNumber${i}" placeholder="Phone No" name="phoneNumber"  autocomplete="off" style="box-shadow: none;">
-        <label for="phoneNumber${i}">Phone No</label>
-        <div id="numError${i}"></div>
-      </div>
-    </td>
-    <td>
-      <select class="form-select rounded-0 border-start-0 border-end-0 border-top-0 border-bottom-0" id="chooseDefault${i}" name="default"  style="box-shadow: none;">
-        <option value="" selected disabled>Is Default</option>
-        <option value="true">Yes</option>
-        <option value="false">No</option>
-      </select>
-      <label for="default"></label>
-      <div id="defaultError${i}"></div>
+const tableBody = document.getElementById("table2");
+const newRow = document.createElement('tr');
+newRow.id = 'tr' + i; 
 
+newRow.innerHTML = `
+  <td class="serialno">${i}</td>
+  <td>
+    <div class="form-floating">
+      <input type="text" class="underInput form-control border-1 rounded-0 border-start-0 border-end-0 border-top-0" style="box-shadow: none;" id="Name${i}" placeholder="Name" name="Name">
+      <label for="name">Name</label>
+      <div id="Nameerror${i}"></div>
+    </div>
+  </td>
+  <td>
+    <div class="form-floating">
+      <input type="text" class="underInput form-control border-1 rounded-0 border-start-0 border-end-0 border-top-0" style="box-shadow: none;" id="Email${i}" placeholder="Email" name="Email">
+      <label for="Email">Email</label>
+      <div id="Emailerror${i}"></div>
+    </div>
+  </td>
+  <td>
+    <div class="form-floating">
+      <input type="text" class="underInput form-control border-1 rounded-0 border-start-0 border-end-0 border-top-0" style="box-shadow: none;" id="phoneNumber${i}" placeholder="Phone No" name="PhoneNo">
+      <label for="PhoneNo">Phone No</label>
+      <div id="numberError${i}"></div>
+    </div>
+  </td>
+  <td>
+    <select class="form-select border-1 rounded-0 border-start-0 border-end-0 border-top-0 border-bottom-0" id="chooseDefault${i}" placeholder="default" name="default">
+      <option value="" selected disabled>Is Default</option>
+      <option value="true">Yes</option>
+      <option value="false">No</option>
+    </select>
+    <div id="defaultError${i}"></div>
+  </td>
+  <td>
+    <i id="correctButton${i}" onClick="checkButtonClick(${i})" class="bx bx-check text-success fs-3 ms-3 mt-2"></i>
+    <i class="bx bxs-trash text-danger fs-3 ms-3 mt-2 delete-row" onclick="removeRow(${i})"></i>
+  </td>
+`;
 
-    </td>
-    <td>
-      <i class='bx bx-check text-success fs-2' id="checkButton${i}" onclick="checkButton(${i})"></i>
-      <i class='bx bxs-trash text-danger fs-3 delete-row'></i>
-    </td>
-  `;
-
-  tableBody.appendChild(newRow);
-  updateSerialNumbers();
+tableBody.appendChild(newRow);
+updateSerialNumbers();
 }
 
-function removeRow(event) {
-  if (event.target.classList.contains("delete-row")) {
-    const row = event.target.closest("tr");
-    row.remove();
-    updateSerialNumbers();
-  }
+
+function updateSerialNumbers() {
+const rows = document.querySelectorAll("#table2 tr");
+rows.forEach((row, index) => {
+  row.querySelector(".serialno").textContent = index + 1;
+});
 }
 
-async function checkButton(rowIndex) {
+
+async function checkButton(i) {
+  const isValid = validateRow(i);
   const urlParams = new URLSearchParams(window.location.search);
   const vendorId = urlParams.get("id");
 
-  const Name = document.getElementById(`Name${rowIndex}`).value;
-  const Email = document.getElementById(`Email${rowIndex}`).value;
-  const phoneNumber = document.getElementById(`phoneNumber${rowIndex}`).value;
-  const chooseDefault = document.getElementById(`chooseDefault${rowIndex}`).value;
+  const Name = document.getElementById('Name'+i).value;
+  const Email = document.getElementById('Email'+i).value;
+  const phoneNumber = document.getElementById('phoneNumber'+i).value;
+  const chooseDefault = document.getElementById('chooseDefault'+i).value;
 
   const payload = {
     name: Name,
@@ -637,6 +663,54 @@ async function checkButton(rowIndex) {
     alert(`Error: ${error.message}`);
   }
 }
+
+
+
+function validateField(value, errorElementId) {
+  const errorElement = document.getElementById(errorElementId);
+  if (!errorElement) {
+    console.error(`Element with ID '${errorElementId}' not found.`);
+    return false;
+  }
+  if (value.trim() === "") {
+    errorElement.textContent = "Required*";
+    errorElement.style.color = "red";
+    errorElement.style.fontSize = "13px";
+    errorElement.style.paddingLeft = "15px";
+    return false;
+  } else {
+    errorElement.textContent = "";
+    return true;
+  }
+}
+
+
+function validateRow(i) {
+  let isValid = true;
+  const Name = document.getElementById(`Name${i}`).value;
+  const Email = document.getElementById(`Email${i}`).value;
+  const phoneNumber = document.getElementById(`phoneNumber${i}`).value;
+  const chooseDefault = document.getElementById(`chooseDefault${i}`).value;
+
+  isValid &= validateField(Name, `Nameerror${i}`);
+  isValid &= validateField(Email, `Emailerror${i}`);
+  isValid &= validateField(phoneNumber, `numberError${i}`);
+  isValid &= validateField(chooseDefault, `defaultError${i}`);
+
+  return isValid;
+}
+
+function removeRow(i) {
+  const row = document.getElementById('tr' + i);
+  if (row) {
+    row.remove();
+    updateSerialNumbers(); 
+  }
+}
+
+
+
+
 
 document.getElementById("addRowButton").addEventListener("click", addRow);
 document.getElementById("table2").addEventListener("click", removeRow);

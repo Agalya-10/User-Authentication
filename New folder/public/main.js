@@ -71,7 +71,7 @@ async function MyButton(event) {
             if (response.ok) {
                 const result = await response.json();
                 console.log("Logged in Successfully.:", result);
-                alert("Logged in Successfully.!");
+                // alert("Logged in Successfully.!");
 
                 localStorage.setItem('opaque', result.data.opaque);
                 localStorage.setItem('accessCode', result.data.accessCode);
@@ -95,7 +95,15 @@ function closeOtpModal() {
     clearInterval(timerInterval);
 }
 
-
+const otpInput = document.getElementById("otpInput");
+otpInput.addEventListener("keydown", function (e) {
+  if (
+    !["Tab"].includes(e.key) && 
+    (e.key !== "Unidentified") 
+  ) {
+    e.preventDefault();
+  }
+});
 
 function openOtpModal() {
   
@@ -169,7 +177,7 @@ async function sendOtp(data) {
         if (response.ok) {
             const result = await response.json();
             console.log("Access code successfully verified.:", result);
-            alert("Access code successfully verified.!");           
+            // alert("Access code successfully verified.!");           
             document.getElementById('form').reset();
             clearInterval(timerInterval); 
             window.location = "vendor.html";

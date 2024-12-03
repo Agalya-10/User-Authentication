@@ -2,6 +2,7 @@ function addButton() {
     window.location = "create.html";
 }
 
+
 let countryIdGet = "";
 let parentId = "";
 let edit = false;
@@ -11,14 +12,14 @@ function getQueryParam() {
   console.log(id);
   if(id!=null){
     editUser(id);
-
   }
 }
-
+let savebutton = document.getElementById('savebutton');
 getQueryParam();
 
 async function editUser(id) {
   edit = true;
+  savebutton.innerHTML = 'Update';
   const jwtToken = localStorage.getItem("jwtToken");
   const response = await fetch(
     `https://hastin-container.com/staging/api/vendor/get/${id}`,
@@ -57,13 +58,17 @@ async function editUser(id) {
     document.getElementById("branch").value = data.bankBranchName;
     document.getElementById("swiftCode").value = data.bankSwiftCode;
 
-    for (let i = 0; i < data.contactList.length; i++) {
-      document.getElementById("Name").value = data.contactList[i].name;
-      document.getElementById("Email").value = data.contactList[i].email;
-      document.getElementById("phoneNumber").value =
-        data.contactList[i].mobileNo;
-      document.getElementById("chooseDefault").value =
-        data.contactList[i].isDefault;
+    for (let i = 0; i < data.contactList.length - 1; i++) {
+      addRow();
+    }
+
+    for (let i = 0; i <= data.contactList.length; i++) {
+
+      j = i + 1
+      document.getElementById("Name"+j).value = data.contactList[i].name;
+      document.getElementById("Email"+j).value = data.contactList[i].email;
+      document.getElementById("phoneNumber"+j).value =data.contactList[i].mobileNo;
+      document.getElementById("chooseDefault"+j).value = data.contactList[i].isDefault;
       document.getElementById("rowId").value = data.contactList[i].id;
     }
 
@@ -86,10 +91,10 @@ async function saveButton(event) {
   let country = document.getElementById("country").value;
   let city = document.getElementById("city").value;
   let zip = document.getElementById("zip").value;
-  let Name = document.getElementById("Name").value;
-  let Email = document.getElementById("Email").value;
-  let phoneNumber = document.getElementById("phoneNumber").value;
-  let chooseDefault = document.getElementById("chooseDefault").value;
+  let Name = document.getElementById("Name1").value;
+  let Email = document.getElementById("Email1").value;
+  let phoneNumber = document.getElementById("phoneNumber1").value;
+  let chooseDefault = document.getElementById("chooseDefault1").value;
   let rowId = document.getElementById("rowId").value;
   let bankAcctName = document.getElementById("bankaccountName").value;
   let bankName = document.getElementById("bankName").value;
@@ -239,7 +244,15 @@ async function saveButton(event) {
     numberError.style.fontSize = "13px";
     numberError.style.paddingLeft = "15px";
     valid = false;
-  } else {
+  }
+  else if (phoneNumber.length < 10) {
+    passwordError.textContent = "Invalid mobile number";
+    passwordError.style.color = "red";
+    passwordError.style.fontSize = "13px";
+    passwordError.style.paddingLeft = "15px";
+    valid = false;
+} 
+  else {
     numberError.textContent = "";
   }
 
@@ -252,6 +265,7 @@ async function saveButton(event) {
   } else {
     defaultError.textContent = "";
   }
+
 
   if (valid) {
     const jwtToken = localStorage.getItem("jwtToken");
@@ -354,7 +368,7 @@ async function saveButton(event) {
 
       if (response.ok) {
         const result = await response.json();
-        console.log("Vendor Created Successfully:", result);
+        console.log("Data saved successfully!", result);
         alert("Vendor Created Successfully!");
         window.location = "vendor.html";
         document.getElementById("formpage").reset();
@@ -507,6 +521,9 @@ function populateCityDropdown(data) {
 
 fetchCurrencies();
 
+
+
+
 function updateSerialNumbers() {
   const rows = document.querySelectorAll("#table2 tr");
   rows.forEach((row, index) => {
@@ -514,51 +531,58 @@ function updateSerialNumbers() {
   });
 }
 
+let i = 1; 
+
 function addRow() {
+  i++; 
+
   const tableBody = document.getElementById("table2");
   const newRow = document.createElement("tr");
 
   newRow.innerHTML = `
-             <td class="serialno"></td>
-                <td>
-                    <div class="form-floating ">
-                        <input type="text" class="underInput form-control border-1 rounded-0 border-start-0 border-end-0 border-top-0 " style="box-shadow: none;" id="Name" placeholder=" Name" name=" Name">
-                        <label for="name"> Name</label>
-                        <div id="Nameerror"></div>
-                    </div>
-                </td>
-                <td> 
-                    <div class="form-floating ">
-                        <input type="text" class="underInput form-control border-1 rounded-0 border-start-0 border-end-0 border-top-0 " style="box-shadow: none;" id="Email" placeholder=" Email" name=" Email">
-                        <label for="Email"> Email</label>
-                        <div id="Emailerror"></div>
-                    </div>
-                </td>
-                <td>
-                    <div class="form-floating ">
-                        <input type="text" class="underInput form-control border-1 rounded-0 border-start-0 border-end-0 border-top-0 " style="box-shadow: none;" id="phoneno" placeholder=" phno" name=" phno">
-                        <label for="phno">Phone No</label>
-                        <div id="numError"></div>
-                    </div>
-                </td>
-               
-                <td>
-                    <select class=" form-select border-1 rounded-0 border-start-0 border-end-0 border-top-0 border-bottom-0"style=""id="default" placeholder="default"  name="default">
-                        <option value="" selected disabled class="mt-4">Is Default</option>
-                        <option value="">Yes</option>
-                        <option value="">No</option>
-                    </select>
-                    <label for="default"></label>
-                    <div id="defaultError"></div>
-                </td>
-                <td>
-                <i class='bx bxs-trash text-danger fs-3 ms-3 mt-2 delete-row' id="delete" ></i>
-            </td>
+    <td class="serialno"></td>
+    <td>
+      <div class="form-floating">
+        <input type="text" class="underInput form-control rounded-0 border-start-0 border-end-0 border-top-0 " id="Name${i}" placeholder="Name" name="Name"  autocomplete="off" style="box-shadow: none;">
+        <label for="Name${i}">Name</label>
+        <div id="Nameerror${i}"></div>
+      </div>
+    </td>
+    <td>
+      <div class="form-floating">
+        <input type="text" class="underInput form-control rounded-0 border-start-0 border-end-0 border-top-0 " id="Email${i}" placeholder="Email" name="Email"  autocomplete="off" style="box-shadow: none;">
+        <label for="Email${i}">Email</label>
+        <div id="Emailerror${i}"></div>
+      </div>
+    </td>
+    <td>
+      <div class="form-floating">
+        <input type="text" class="underInput form-control rounded-0 border-start-0 border-end-0 border-top-0 " id="phoneNumber${i}" placeholder="Phone No" name="phoneNumber"  autocomplete="off" style="box-shadow: none;">
+        <label for="phoneNumber${i}">Phone No</label>
+        <div id="numError${i}"></div>
+      </div>
+    </td>
+    <td>
+      <select class="form-select rounded-0 border-start-0 border-end-0 border-top-0 border-bottom-0" id="chooseDefault${i}" name="default"  style="box-shadow: none;">
+        <option value="" selected disabled>Is Default</option>
+        <option value="true">Yes</option>
+        <option value="false">No</option>
+      </select>
+      <label for="default"></label>
+      <div id="defaultError${i}"></div>
+
+
+    </td>
+    <td>
+      <i class='bx bx-check text-success fs-2' id="checkButton${i}" onclick="checkButton(${i})"></i>
+      <i class='bx bxs-trash text-danger fs-3 delete-row'></i>
+    </td>
   `;
 
   tableBody.appendChild(newRow);
   updateSerialNumbers();
 }
+
 function removeRow(event) {
   if (event.target.classList.contains("delete-row")) {
     const row = event.target.closest("tr");
@@ -566,5 +590,56 @@ function removeRow(event) {
     updateSerialNumbers();
   }
 }
+
+async function checkButton(rowIndex) {
+  const urlParams = new URLSearchParams(window.location.search);
+  const vendorId = urlParams.get("id");
+
+  const Name = document.getElementById(`Name${rowIndex}`).value;
+  const Email = document.getElementById(`Email${rowIndex}`).value;
+  const phoneNumber = document.getElementById(`phoneNumber${rowIndex}`).value;
+  const chooseDefault = document.getElementById(`chooseDefault${rowIndex}`).value;
+
+  const payload = {
+    name: Name,
+    email: Email,
+    mobileNo: phoneNumber,
+    isDefault: chooseDefault === "Yes",
+    id: null,
+    vendorId: vendorId,
+    createdBy: "111c9720-4abb-4beb-9303-34d0f2df67da"
+  };
+
+  try {
+    const jwtToken = localStorage.getItem("jwtToken");
+    const response = await fetch(
+      "https://hastin-container.com/staging/api/vendor/contact/create",
+      {
+        method: "POST",
+        headers: {
+          Authorization: `BslogiKey ${jwtToken}`,
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(payload),
+      }
+    );
+
+    if (response.ok) {
+      const result = await response.json();
+      console.log("Data saved successfully!", result);
+      alert("Data saved successfully!");
+    } else {
+      const errorMessage = await response.text();
+      throw new Error(errorMessage);
+    }
+  } catch (error) {
+    console.error(error);
+    alert(`Error: ${error.message}`);
+  }
+}
+
 document.getElementById("addRowButton").addEventListener("click", addRow);
 document.getElementById("table2").addEventListener("click", removeRow);
+
+
+

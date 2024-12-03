@@ -193,6 +193,9 @@ option{
     font-family:Georgia, 'Times New Roman', Times, serif;
     display: inline-block;
 }
+.user{
+    justify-content: space-between;
+}
 .bx-check{
     cursor: pointer;
 }
@@ -216,9 +219,10 @@ option{
     width: 65% !important;
     margin-left: 72px !important;
 }
-/* .usericon{
-   margin-right: -5.5rem !important;
-} */
+.addbutton{
+    margin-left: 43rem !important;
+}
+
 }
 
 
@@ -239,10 +243,14 @@ option{
     .parent-container1{
         text-align:start !important;
     }
-     /* .bx-usercon{
-        margin-left: 10rem !important;
-     }
-     */
+    .savebutton{
+        margin-left: 13rem !important;
+    }
+    .addbutton{
+        margin-left: 43rem !important;
+    }
+    
+    
 }
 
 
@@ -259,8 +267,11 @@ option{
         width: 65% !important;
         margin-left: 30px !important;
     }
-    /* .parent{
-        margin-left: 15rem !important;
-     }
-     */
+    .savebutton{
+        margin-left: 13.5rem !important;
+    }
+    .addbutton{
+        margin-left: 43rem !important;
+    }
+    
 }

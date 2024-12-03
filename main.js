@@ -95,15 +95,6 @@ function closeOtpModal() {
     clearInterval(timerInterval);
 }
 
-const otpInput = document.getElementById("otpInput");
-otpInput.addEventListener("keydown", function (e) {
-  if (
-    !["Tab"].includes(e.key) && 
-    (e.key !== "Unidentified") 
-  ) {
-    e.preventDefault();
-  }
-});
 
 function openOtpModal() {
   
@@ -156,6 +147,13 @@ function startTimer() {
 
 async function sendOtp(data) {
     try {
+        const enteredOtp = document.getElementById('otpInput').value;
+        const storedOtp = localStorage.getItem('accessCode');
+  
+        if (enteredOtp !== storedOtp) {
+            alert("Invalid OTP. Please enter the correct OTP.");
+            return; 
+        }
         
         const jwtToken = localStorage.getItem('jwtToken'); 
         
